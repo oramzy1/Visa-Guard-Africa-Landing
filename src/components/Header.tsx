@@ -35,7 +35,7 @@ export function Header() {
         <div className="hidden md:block">
           <button
             onClick={() => setShowDownload(true)}
-            className="rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90"
+            className="rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90"
           >
             Get Started Now
           </button>

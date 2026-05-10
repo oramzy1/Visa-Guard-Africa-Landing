@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useRouterState } from "@tanstack/react-router";
-import logo from "@/assets/vga-logo.png";
+import logo from "@/assets/vgaloader.png";
 
 export function PageLoader() {
   const isLoading = useRouterState({ select: (s) => s.isLoading || s.isTransitioning });
@@ -31,12 +31,12 @@ export function PageLoader() {
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-background/80 backdrop-blur-sm pointer-events-none">
       <div className="relative flex h-24 w-24 items-center justify-center">
-        <span className="absolute inset-0 rounded-full bg-primary/20 animate-brand-ring" />
-        <span className="absolute inset-2 rounded-full bg-primary/15 animate-brand-ring [animation-delay:200ms]" />
+        {/* <span className="absolute inset-0 rounded-full bg-primary/20 animate-brand-ring" /> */}
+        {/* <span className="absolute inset-2 rounded-full bg-primary/15 animate-brand-ring [animation-delay:200ms]" /> */}
         <img
           src={logo}
           alt="Loading"
-          className="relative h-16 w-16 rounded-xl object-contain animate-brand-pulse"
+          className="relative h-32 w-32 rounded-xl object-contain animate-brand-pulse"
         />
       </div>
     </div>
