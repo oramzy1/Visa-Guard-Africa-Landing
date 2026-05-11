@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { PageLayout } from "@/components/PageLayout";
 import { DownloadAppDialog } from "@/components/DownloadAppDialog";
 import {
@@ -29,6 +29,7 @@ import agent1 from "@/assets/agent1.jpg";
 import agent2 from "@/assets/agent2.jpg";
 import agent3 from "@/assets/agent3.jpg";
 import singlePhone from "@/assets/singlePhone.png";
+import WaitListPromo from "@/components/WaitListPromo";
 
 export const Route = createFileRoute("/")({
   component: HomePage,
@@ -136,11 +137,56 @@ function HomePage() {
   const [download, setDownload] = useState(false);
   const [activeAgent, setActiveAgent] = useState(0);
   const [activeTrust, setActiveTrust] = useState(0);
+  const touchStart = useRef<{ x: number; y: number } | null>(null);
+  const autoTrustRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  useEffect(() => {
-    const t = setInterval(() => setActiveTrust((p) => (p + 1) % trustFeatures.length), 2800);
-    return () => clearInterval(t);
-  }, []);
+  // useEffect(() => {
+  //   const t = setInterval(() => setActiveTrust((p) => (p + 1) % trustFeatures.length), 2800);
+  //   return () => clearInterval(t);
+  // }, []);
+
+  const handleTrustTouchStart = (e: React.TouchEvent) => {
+    // Pause auto-advance while user interacts
+    clearInterval(autoTrustRef.current!);
+    touchStart.current = {
+      x: e.touches[0].clientX,
+      y: e.touches[0].clientY,
+    };
+  };
+
+  const handleTrustTouchEnd = (e: React.TouchEvent) => {
+    if (!touchStart.current) return;
+    const dx = e.changedTouches[0].clientX - touchStart.current.x;
+    const dy = e.changedTouches[0].clientY - touchStart.current.y;
+    const THRESHOLD = 40; // min px to count as intentional swipe
+
+    const isHorizontal = Math.abs(dx) > Math.abs(dy);
+    const isVertical = Math.abs(dy) > Math.abs(dx);
+
+    if (isHorizontal && Math.abs(dx) > THRESHOLD) {
+      // swipe left → next, swipe right → previous
+      setActiveTrust((p) =>
+        dx < 0
+          ? (p + 1) % trustFeatures.length
+          : (p - 1 + trustFeatures.length) % trustFeatures.length,
+      );
+    } else if (isVertical && Math.abs(dy) > THRESHOLD) {
+      // swipe up → next, swipe down → previous
+      setActiveTrust((p) =>
+        dy < 0
+          ? (p + 1) % trustFeatures.length
+          : (p - 1 + trustFeatures.length) % trustFeatures.length,
+      );
+    }
+
+    touchStart.current = null;
+
+    // Resume auto-advance after 5s of inactivity
+    autoTrustRef.current = setInterval(
+      () => setActiveTrust((p) => (p + 1) % trustFeatures.length),
+      2800,
+    );
+  };
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -153,58 +199,35 @@ function HomePage() {
     <PageLayout>
       {/* HERO */}
       <section className="bg-hero-cream">
-        <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 py-16 md:grid-cols-2 md:py-24">
+        <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 py-18 md:grid-cols-2 md:py-24">
           <div className="space-y-7">
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-medium text-primary shadow-sm">
+            <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-2 py-1 md:px-4 md:py-1.5 text-[.6rem] md:text-xs font-medium text-primary shadow-sm">
               <span className="h-1 w-1 rounded-full bg-primary" />
               Protecting Africans From Visa Scams
             </div>
-            <h1 className="text-4xl font-bold leading-[1.1] text-foreground md:text-6xl">
+            <h1 className="text-3xl font-bold leading-[1.1] text-foreground md:text-6xl">
               Connect With <span className="italic-serif text-primary">Trusted</span> &{" "}
               <span className="italic-serif text-primary">Verified</span> Visa Experts Across
               Africa.
             </h1>
-            <p className="max-w-xl text-base text-muted-foreground md:text-lg">
+            <p className="max-w-xl text-sm text-muted-foreground md:text-lg">
               Visa Guard Africa Helps Travelers Avoid Scams Through Verified Agents, Secure Escrow
               Payments, And Transparent Application Tracking.
             </p>
+            <WaitListPromo />
             <div className="flex flex-wrap items-center gap-3">
               <button
                 onClick={() => setDownload(true)}
-                className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90"
+                className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90 w-full md:w-fit justify-center"
               >
                 <Download className="h-4 w-4" /> Download App
               </button>
               <Link
                 to="/waitlist"
-                className="inline-flex items-center gap-2 rounded-lg border border-border bg-background px-6 py-3.5 text-sm font-semibold transition hover:bg-accent"
+                className="inline-flex items-center gap-2 rounded-lg border border-border bg-background px-6 py-3.5 text-sm font-semibold transition hover:bg-accent justify-center w-full md:w-fit"
               >
                 <Users className="h-4 w-4" /> Join the Waitlist
               </Link>
-            </div>
-            <div className="flex items-center gap-3 pt-2">
-              <div className="flex -space-x-2">
-                <img
-                  src={agent1}
-                  alt=""
-                  className="h-7 w-7 rounded-full border-2 border-background object-cover"
-                />
-                <img
-                  src={agent2}
-                  alt=""
-                  className="h-7 w-7 rounded-full border-2 border-background object-cover"
-                />
-                <img
-                  src={agent3}
-                  alt=""
-                  className="h-7 w-7 rounded-full border-2 border-background object-cover"
-                />
-              </div>
-              <div className="flex items-center gap-1 text-yellow-500">
-                <Star className="h-4 w-4 fill-current" />
-                <Star className="h-4 w-4 fill-current" />
-              </div>
-              <span className="text-sm text-muted-foreground">1000+ Users Already On Waitlist</span>
             </div>
           </div>
           <div className="relative">
@@ -279,10 +302,10 @@ function HomePage() {
               Travel <span className="italic-serif text-primary">Smarter.</span> Travel{" "}
               <span className="italic-serif text-primary">Protected.</span>
             </h2>
-            <p className="mt-4 text-muted-foreground">
+            <p className="mt-4 text-muted-foreground text-xs md:text-sm">
               From Verified Visa Support To Secure Travel Guidance, Visa Guard Africa
             </p>
-            <p className="mt-1 text-muted-foreground">
+            <p className="mt-1 text-muted-foreground text-xs md:text-sm">
               Helps Traveler Move Forward With Greater Confidence & Protection.
             </p>
           </div>
@@ -296,11 +319,11 @@ function HomePage() {
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-              <div className="absolute bottom-15 left-6 max-w-md text-white">
-                <h3 className="text-md md:text-3xl font-bold">
+              <div className="absolute bottom-15 left-4 max-w-md text-white">
+                <h3 className="text-sm md:text-2xl font-bold">
                   Your Trusted Travel Protection Partner
                 </h3>
-                <p className="mt-2 text-sm text-white/80">
+                <p className="mt-2 text-xs md:text-sm text-white/80">
                   From Verified Visa Support To Secure Travel Guidance, Visa Guard Africa Helps
                   Travelers Move Forward With Greater Confidence & Protection.
                 </p>
@@ -378,7 +401,12 @@ function HomePage() {
           </div>
 
           {/* Mobile: stacked card shuffle */}
-          <div className="relative mt-12 md:hidden" style={{ height: "300px" }}>
+          <div
+            className="relative mt-12 md:hidden touch-pan-y select-none"
+            style={{ height: "300px" }}
+            onTouchStart={handleTrustTouchStart}
+            onTouchEnd={handleTrustTouchEnd}
+          >
             {trustFeatures.map((f, i) => {
               const offset = (i - activeTrust + trustFeatures.length) % trustFeatures.length;
               const isActive = offset === 0;

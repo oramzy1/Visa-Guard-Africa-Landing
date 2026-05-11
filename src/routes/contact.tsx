@@ -22,14 +22,14 @@ function ContactPage() {
   return (
     <PageLayout>
       <section className="bg-hero-cream">
-        <div className="mx-auto max-w-7xl px-6 py-16">
+        <div className="mx-auto max-w-7xl px-6 py-18 md:py-24">
           <span className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-3 py-1 text-xs font-semibold text-primary">
             • Contact Us
           </span>
-          <h1 className="mt-5 text-4xl font-bold md:text-5xl">
+          <h1 className="mt-5 text-3xl font-bold md:text-5xl">
             Need Help or <span className="italic-serif text-primary">Support?</span>
           </h1>
-          <p className="mt-4 max-w-2xl text-muted-foreground">
+          <p className="mt-4 max-w-2xl text-muted-foreground text-xs md:text-sm">
             Connect With Our Team For Platform Support, Partnership Opportunities, Or Questions
             About Secure Visa Processing And Travel Protection Services.
           </p>

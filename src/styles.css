@@ -101,6 +101,10 @@
   font-weight: 400;
 }
 
+@media (min-width: 640px) {
+  .cf-turnstile-wrap { transform: scale(1) !important; margin-bottom: 0 !important; }
+}
+
 /* Loader pulse */
 @keyframes brand-pulse {
   0%, 100% { transform: scale(1); opacity: 1; }

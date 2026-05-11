@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Logo } from "./Logo";
-import { Menu, X } from "lucide-react";
+import {  X, TextAlignEnd } from "lucide-react";
 import { DownloadAppDialog } from "./DownloadAppDialog";
 
 const links = [
@@ -17,7 +17,7 @@ export function Header() {
   const [showDownload, setShowDownload] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-brand-cream/85 backdrop-blur border-b border-border/40">
+    <header className="fixed top-0 z-40 w-full bg-brand-cream/85 backdrop-blur border-b border-border/40">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3">
         <Logo />
         <nav className="hidden items-center gap-8 md:flex">
@@ -33,15 +33,15 @@ export function Header() {
           ))}
         </nav>
         <div className="hidden md:block">
-          <button
-            onClick={() => setShowDownload(true)}
+          <Link
+          to={'/waitlist'}
             className="rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90"
           >
             Get Started Now
-          </button>
+          </Link>
         </div>
         <button className="md:hidden" onClick={() => setOpen(!open)} aria-label="Menu">
-          {open ? <X /> : <Menu />}
+          {open ? <X /> : <TextAlignEnd />}
         </button>
       </div>
       {open && (
@@ -58,12 +58,12 @@ export function Header() {
                 {l.label}
               </Link>
             ))}
-            <button
-              onClick={() => { setShowDownload(true); setOpen(false); }}
-              className="mt-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground"
+            <Link
+              to={'/waitlist'}
+              className="mt-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground w-fit"
             >
               Get Started Now
-            </button>
+            </Link>
           </div>
         </div>
       )}

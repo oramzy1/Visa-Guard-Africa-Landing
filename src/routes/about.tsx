@@ -84,41 +84,41 @@ function AboutPage() {
   return (
     <PageLayout>
       <section className="bg-hero-cream">
-        <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 py-16 md:grid-cols-2">
+        <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 py-18 md:grid-cols-2">
           <div className="space-y-6">
             <span className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-3 py-1 text-xs font-semibold text-primary">
               • Our Story
             </span>
-            <h1 className="text-4xl font-bold leading-tight md:text-5xl">
+            <h1 className="text-3xl font-bold leading-tight md:text-5xl">
               Built From <span className="italic-serif text-primary">Real Experience</span>
-              <br />
-              Designed to Protect <span className="italic-serif text-primary">Millions</span>
+              <br className="md:flex hidden" /> Designed to Protect <span className="italic-serif text-primary">Millions</span>
             </h1>
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground text-xs md:text-sm">
               Visa Guard Africa Technologies LTD was created to help Africans avoid visa and
               relocation scams through trust, transparency, and technology-driven protection.
             </p>
-            <div className="flex items-center gap-3">
-              <div className="flex -space-x-2">
-                <img
-                  src={agent1}
-                  alt=""
-                  className="h-7 w-7 rounded-full border-2 border-background object-cover"
-                />
-                <img
-                  src={agent2}
-                  alt=""
-                  className="h-7 w-7 rounded-full border-2 border-background object-cover"
-                />
-                <img
-                  src={agent3}
-                  alt=""
-                  className="h-7 w-7 rounded-full border-2 border-background object-cover"
-                />
-              </div>
-              <Star className="h-4 w-4 fill-current text-yellow-500" />
-              <span className="text-sm text-muted-foreground">1000+ Users Already On Waitlist</span>
-            </div>
+           <div className="flex items-center gap-3 py-6">
+                         <div className="flex -space-x-2">
+                           {[agent1, agent2, agent3].map((src, i) => (
+                             <img
+                               key={i}
+                               src={src}
+                               alt=""
+                               className="h-9 w-9 rounded-full border-2 border-background object-cover"
+                             />
+                           ))}
+                         </div>
+                         <div>
+                           <div className="flex gap-0.5 text-yellow-500">
+                             {Array(2)
+                               .fill(null)
+                               .map((_, i) => (
+                                 <Star key={i} className="h-3.5 w-3.5 fill-current" />
+                               ))}
+                           </div>
+                           <p className="text-[.7rem] md:text-xs text-muted-foreground">1,000+ users already waiting</p>
+                         </div>
+                       </div>
             <div className="flex flex-wrap gap-3">
               <button
                 onClick={() => setDl(true)}
@@ -134,7 +134,7 @@ function AboutPage() {
               </Link>
             </div>
           </div>
-          <div className="rounded-3xl bg-emerald-50 p-6">
+          <div className="rounded-3xl bg-emerald-50 md:p-6">
             <img
               src={worldMap}
               alt="World"
@@ -188,7 +188,7 @@ function AboutPage() {
       </section>
 
       {/* Vision */}
-      <section className="py-16">
+      <section className="pb-16">
         <div className="mx-auto max-w-7xl px-6">
           <span className="inline-flex items-center gap-2 rounded-full border border-border px-3 py-1 text-xs font-semibold text-primary">
             • The Vision
@@ -251,7 +251,7 @@ function AboutPage() {
       </section>
 
       {/* Mission */}
-      <section className="bg-accent/40 py-16">
+      <section className="bg-accent/40 py-5 md:py-16">
         <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 md:grid-cols-[1fr_280px]">
           <div>
             <span className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-3 py-1 text-xs font-semibold text-primary">

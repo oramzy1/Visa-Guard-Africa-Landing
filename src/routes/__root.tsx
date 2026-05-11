@@ -85,6 +85,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content: "Verified agents. Secure escrow. Transparent visa journey.",
       },
       { property: "og:type", content: "website" },
+        {
+      property: "og:url",
+      content: "https://waitlist.visa-guard-africa.workers.dev",
+    },
+    {
+      property: "og:image",
+      content: "https://waitlist.visa-guard-africa.workers.dev/image.png",
+    },
       { name: "twitter:card", content: "summary" },
     ],
     links: [
