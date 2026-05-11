@@ -184,14 +184,31 @@ function WaitlistPage() {
     }
 
     if (name === "email") {
-      const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+      const LOCAL_RE = /^[a-zA-Z0-9]([a-zA-Z0-9._+\-]*[a-zA-Z0-9])?$/;
+      const DOMAIN_RE = /^[a-zA-Z0-9]([a-zA-Z0-9\-]*[a-zA-Z0-9])?(\.[a-zA-Z]{2,})+$/; // valid domain
+      const CONSEC_RE = /[.+_\-]{2,}/; // consecutive special chars like ///, ..., --
+
       if (!value) error = "";
       else if (EMOJI_RE.test(value)) error = "Email must not contain emoji.";
       else if (isSuspicious(value)) error = "Email contains invalid characters.";
       else if (value.length > 254) error = "Email address is too long.";
-      else if (!EMAIL_RE.test(value)) error = "Please enter a valid email address.";
-    }
+      else if (!value.includes("@")) error = "Email must contain @.";
+      else {
+        const [local, ...rest] = value.split("@");
+        const domain = rest.join("@"); // handles edge case of multiple @
 
+        if (rest.length > 1) error = "Email must contain only one @.";
+        else if (!local) error = "Email cannot start with @.";
+        else if (!domain) error = "Please enter a domain (e.g. gmail.com).";
+        else if (CONSEC_RE.test(local)) error = "Email contains consecutive special characters.";
+        else if (/[^a-zA-Z0-9._+\-]/.test(local))
+          error = "Email local part contains invalid characters.";
+        else if (!LOCAL_RE.test(local))
+          error = "Email cannot start or end with a special character.";
+        else if (!DOMAIN_RE.test(domain)) error = "Email domain looks invalid (e.g. gmail.com).";
+        else if (!domain.includes(".")) error = "Email domain must include a TLD (e.g. .com).";
+      }
+    }
     if (name === "phone") {
       const n = value.replace(/^0+/, "");
       if (!value) error = "";
@@ -244,13 +261,30 @@ function WaitlistPage() {
 
     // ── Email ────────────────────────────────────────────────────────────────
     const email = form.email.trim();
-    const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    const LOCAL_RE = /^[a-zA-Z0-9]([a-zA-Z0-9._+\-]*[a-zA-Z0-9])?$/;
+    const DOMAIN_RE = /^[a-zA-Z0-9]([a-zA-Z0-9\-]*[a-zA-Z0-9])?(\.[a-zA-Z]{2,})+$/;
+    const CONSEC_RE = /[.+_\-]{2,}/;
 
     if (!email) errs.email = "Email address is required.";
     else if (EMOJI_RE.test(email)) errs.email = "Email must not contain emoji.";
     else if (isSuspicious(email)) errs.email = "Email contains invalid characters.";
-    else if (!EMAIL_RE.test(email)) errs.email = "Please enter a valid email address.";
     else if (email.length > 254) errs.email = "Email address is too long.";
+    else if (!email.includes("@")) errs.email = "Email must contain @.";
+    else {
+      const [local, ...rest] = email.split("@");
+      const domain = rest.join("@");
+
+      if (rest.length > 1) errs.email = "Email must contain only one @.";
+      else if (!local) errs.email = "Email cannot start with @.";
+      else if (!domain) errs.email = "Please enter a domain (e.g. gmail.com).";
+      else if (CONSEC_RE.test(local)) errs.email = "Email contains consecutive special characters.";
+      else if (/[^a-zA-Z0-9._+\-]/.test(local))
+        errs.email = "Email local part contains invalid characters.";
+      else if (!LOCAL_RE.test(local))
+        errs.email = "Email cannot start or end with a special character.";
+      else if (!DOMAIN_RE.test(domain)) errs.email = "Email domain looks invalid (e.g. gmail.com).";
+      else if (!domain.includes(".")) errs.email = "Email domain must include a TLD (e.g. .com).";
+    }
 
     // ── Phone ─────────────────────────────────────────────────────────────────
     if (localPhone) {
