@@ -19,6 +19,7 @@ import founder1 from "@/assets/Founder1.png";
 import agent1 from "@/assets/agent-1.jpg";
 import agent2 from "@/assets/agent-2.jpg";
 import agent3 from "@/assets/agent-3.jpg";
+import WaitListPromo from "@/components/WaitListPromo";
 
 export const Route = createFileRoute("/about")({
   component: AboutPage,
@@ -97,28 +98,7 @@ function AboutPage() {
               Visa Guard Africa Technologies LTD was created to help Africans avoid visa and
               relocation scams through trust, transparency, and technology-driven protection.
             </p>
-           <div className="flex items-center gap-3 py-6">
-                         <div className="flex -space-x-2">
-                           {[agent1, agent2, agent3].map((src, i) => (
-                             <img
-                               key={i}
-                               src={src}
-                               alt=""
-                               className="h-9 w-9 rounded-full border-2 border-background object-cover"
-                             />
-                           ))}
-                         </div>
-                         <div>
-                           <div className="flex gap-0.5 text-yellow-500">
-                             {Array(2)
-                               .fill(null)
-                               .map((_, i) => (
-                                 <Star key={i} className="h-3.5 w-3.5 fill-current" />
-                               ))}
-                           </div>
-                           <p className="text-[.7rem] md:text-xs text-muted-foreground">1,000+ users already waiting</p>
-                         </div>
-                       </div>
+           <WaitListPromo />
             <div className="flex flex-wrap gap-3">
               <button
                 onClick={() => setDl(true)}
