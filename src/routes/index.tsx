@@ -140,11 +140,6 @@ function HomePage() {
   const touchStart = useRef<{ x: number; y: number } | null>(null);
   const autoTrustRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  // useEffect(() => {
-  //   const t = setInterval(() => setActiveTrust((p) => (p + 1) % trustFeatures.length), 2800);
-  //   return () => clearInterval(t);
-  // }, []);
-
   const handleTrustTouchStart = (e: React.TouchEvent) => {
     // Pause auto-advance while user interacts
     clearInterval(autoTrustRef.current!);
@@ -579,7 +574,7 @@ function HomePage() {
             {faqs.map((f, i) => (
               <FaqItem key={i} {...f} defaultOpen={i === 0} />
             ))}
-          </div>
+          </div> 
         </div>
       </section>
 

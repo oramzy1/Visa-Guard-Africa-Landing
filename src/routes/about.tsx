@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { PageLayout } from "@/components/PageLayout";
 import { DownloadAppDialog } from "@/components/DownloadAppDialog";
 import {
@@ -77,11 +77,51 @@ const trustFeatures = [
 function AboutPage() {
   const [dl, setDl] = useState(false);
   const [activeTrust, setActiveTrust] = useState(0);
+  const touchStart = useRef<{ x: number; y: number } | null>(null);
+  const autoTrustRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  useEffect(() => {
-    const t = setInterval(() => setActiveTrust((p) => (p + 1) % trustFeatures.length), 2800);
-    return () => clearInterval(t);
-  }, []);
+  const handleTrustTouchStart = (e: React.TouchEvent) => {
+    // Pause auto-advance while user interacts
+    clearInterval(autoTrustRef.current!);
+    touchStart.current = {
+      x: e.touches[0].clientX,
+      y: e.touches[0].clientY,
+    };
+  };
+
+  const handleTrustTouchEnd = (e: React.TouchEvent) => {
+    if (!touchStart.current) return;
+    const dx = e.changedTouches[0].clientX - touchStart.current.x;
+    const dy = e.changedTouches[0].clientY - touchStart.current.y;
+    const THRESHOLD = 40; // min px to count as intentional swipe
+
+    const isHorizontal = Math.abs(dx) > Math.abs(dy);
+    const isVertical = Math.abs(dy) > Math.abs(dx);
+
+    if (isHorizontal && Math.abs(dx) > THRESHOLD) {
+      // swipe left → next, swipe right → previous
+      setActiveTrust((p) =>
+        dx < 0
+          ? (p + 1) % trustFeatures.length
+          : (p - 1 + trustFeatures.length) % trustFeatures.length,
+      );
+    } else if (isVertical && Math.abs(dy) > THRESHOLD) {
+      // swipe up → next, swipe down → previous
+      setActiveTrust((p) =>
+        dy < 0
+          ? (p + 1) % trustFeatures.length
+          : (p - 1 + trustFeatures.length) % trustFeatures.length,
+      );
+    }
+
+    touchStart.current = null;
+
+    // Resume auto-advance after 5s of inactivity
+    autoTrustRef.current = setInterval(
+      () => setActiveTrust((p) => (p + 1) % trustFeatures.length),
+      2800,
+    );
+  };
   return (
     <PageLayout>
       <section className="bg-hero-cream">
@@ -92,13 +132,14 @@ function AboutPage() {
             </span>
             <h1 className="text-3xl font-bold leading-tight md:text-5xl">
               Built From <span className="italic-serif text-primary">Real Experience</span>
-              <br className="md:flex hidden" /> Designed to Protect <span className="italic-serif text-primary">Millions</span>
+              <br className="md:flex hidden" /> Designed to Protect{" "}
+              <span className="italic-serif text-primary">Millions</span>
             </h1>
             <p className="text-muted-foreground text-xs md:text-sm">
               Visa Guard Africa Technologies LTD was created to help Africans avoid visa and
               relocation scams through trust, transparency, and technology-driven protection.
             </p>
-           <WaitListPromo />
+            <WaitListPromo />
             <div className="flex flex-wrap gap-3">
               <button
                 onClick={() => setDl(true)}
@@ -184,7 +225,12 @@ function AboutPage() {
             technology, verification, secure payments and transparent communication to create a
             safer visa and relocation experience across Africa.
           </p>
-          <div className="relative mt-12 md:hidden" style={{ height: "300px" }}>
+          <div
+            className="relative mt-12 md:hidden  touch-pan-y select-none"
+            style={{ height: "300px" }}
+            onTouchStart={handleTrustTouchStart}
+            onTouchEnd={handleTrustTouchEnd}
+          >
             {trustFeatures.map((f, i) => {
               const offset = (i - activeTrust + trustFeatures.length) % trustFeatures.length;
               const isActive = offset === 0;
