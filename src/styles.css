@@ -89,7 +89,7 @@
 
 /* Decorative cream hero background with subtle vertical gridlines */
 .bg-hero-cream {
-  background-color: var(--brand-cream);
+  background-color: '#FEFDFC';
   background-image:
     linear-gradient(to right, oklch(0.92 0.02 90 / 0.45) 1px, transparent 1px);
   background-size: 64px 100%;

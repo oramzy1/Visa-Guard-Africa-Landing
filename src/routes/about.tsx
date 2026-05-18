@@ -20,6 +20,7 @@ import agent1 from "@/assets/agent-1.jpg";
 import agent2 from "@/assets/agent-2.jpg";
 import agent3 from "@/assets/agent-3.jpg";
 import WaitListPromo from "@/components/WaitListPromo";
+import Pill from "@/components/Pill";
 
 export const Route = createFileRoute("/about")({
   component: AboutPage,
@@ -124,18 +125,16 @@ function AboutPage() {
   };
   return (
     <PageLayout>
-      <section className="bg-hero-cream">
-        <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 py-18 md:grid-cols-2">
-          <div className="space-y-6">
-            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-3 py-1 text-xs font-semibold text-primary">
-              • Our Story
-            </span>
-            <h1 className="text-3xl font-bold leading-tight md:text-5xl">
+      <section className="bg-white md:bg-hero-cream">
+        <div className="mx-auto grid max-w-7xl items-center text-center sm:text-start gap-10 px-6 py-18 md:grid-cols-2">
+          <div className="spce-y-3 sm:space-y-5">
+           <Pill text='Our Story' />
+            <h1 className="text-2xl sm:text-3xl font-bold leading-tight md:text-5xl">
               Built From <span className="italic-serif text-primary">Real Experience</span>
               <br className="md:flex hidden" /> Designed to Protect{" "}
               <span className="italic-serif text-primary">Millions</span>
             </h1>
-            <p className="text-muted-foreground text-xs md:text-sm">
+            <p className="text-muted-foreground text-[.6rem] sm:text-xs md:text-sm">
               Visa Guard Africa Technologies LTD was created to help Africans avoid visa and
               relocation scams through trust, transparency, and technology-driven protection.
             </p>
@@ -143,13 +142,13 @@ function AboutPage() {
             <div className="flex flex-wrap gap-3">
               <button
                 onClick={() => setDl(true)}
-                className="rounded-lg bg-primary px-5 py-3 text-sm font-semibold flex items-center gap-1 w-full md:w-fit text-primary-foreground hover:bg-primary/90 justify-center"
+                className="rounded-lg bg-primary px-5 py-3 text-xs sm:text-sm font-semibold flex items-center gap-1 w-full md:w-fit text-primary-foreground hover:bg-primary/90 justify-center"
               >
                 <Download size={15} /> Download App
               </button>
               <Link
                 to="/waitlist"
-                className="rounded-lg border border-border bg-background px-5 py-3 text-sm font-semibold justify-center  flex items-center gap-1 w-full md:w-fit hover:bg-accent"
+                className="rounded-lg border border-border bg-background px-5 py-3 text-xs sm:text-sm font-semibold justify-center  flex items-center gap-1 w-full md:w-fit hover:bg-accent"
               >
                 <Users size={15} /> Join the Waitlist
               </Link>
@@ -167,7 +166,7 @@ function AboutPage() {
       </section>
 
       {/* Founder */}
-      <section className="py-16">
+      <section className="py-8 sm:py-16">
         <div className="mx-auto max-w-7xl md:px-6">
           <div className="overflow-hidden md:rounded-3xl bg-primary text-primary-foreground">
             <div className="grid items-center gap-8 p-4 md:grid-cols-[280px_1fr] md:p-12">
@@ -185,11 +184,11 @@ function AboutPage() {
                 </div>
               </div>
               <div>
-                <p className="text-sm font-semibold uppercase tracking-widest text-primary-foreground/70">
+                <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-primary-foreground/70">
                   Founder Story
                 </p>
-                <h2 className="mt-2 text-2xl font-bold md:text-3xl">Turning Pain Into Purpose</h2>
-                <p className="mt-4 text-sm leading-relaxed text-primary-foreground/85">
+                <h2 className="mt-2 text-2xl font-semibold md:text-3xl">Turning Pain Into Purpose</h2>
+                <p className="mt-4 text-xs sm:text-sm leading-relaxed text-primary-foreground/85">
                   <strong>Visa Guard Africa Technologies</strong> was founded by{" "}
                   <strong>Chukwudi Eze</strong> after personally experiencing the devastating impact
                   of visa and relocation scams. Like many Africans pursuing opportunities abroad, he
@@ -209,17 +208,13 @@ function AboutPage() {
       </section>
 
       {/* Vision */}
-      <section className="pb-16">
-        <div className="mx-auto max-w-7xl px-6">
-          <span className="inline-flex items-center gap-2 rounded-full border border-border px-3 py-1 text-xs font-semibold text-primary">
-            • The Vision
-          </span>
-          <h2 className="mt-3 max-w-2xl text-3xl font-bold md:text-4xl">
-            Building Africa's
-            <br />
-            <span className="italic-serif text-primary">Travel Protection</span> Ecosystem
+      <section className="pb-5 sm:pb-16">
+        <div className="mx-auto max-w-7xl text-center sm:text-start px-6">
+          <Pill text='The Vision' />
+          <h2 className="sm:mt-3 max-w-2xl text-xl sm:text-3xl font-bold md:text-4xl">
+            Building Africa's <span className="italic-serif text-primary">Travel Protection</span> Ecosystem
           </h2>
-          <p className="mt-4 max-w-2xl text-muted-foreground">
+          <p className="mt-4 text-[.65rem] sm:text-xs md:text-sm max-w-2xl text-muted-foreground">
             Today, Visa Guard Africa is building a secure ecosystem designed to protect travelers
             while helping verified professionals build trust and credibility. The platform combines
             technology, verification, secure payments and transparent communication to create a
@@ -227,7 +222,7 @@ function AboutPage() {
           </p>
           <div
             className="relative mt-12 md:hidden  touch-pan-y select-none"
-            style={{ height: "300px" }}
+            style={{ height: "250px" }}
             onTouchStart={handleTrustTouchStart}
             onTouchEnd={handleTrustTouchEnd}
           >
@@ -278,17 +273,15 @@ function AboutPage() {
 
       {/* Mission */}
       <section className="bg-accent/40 py-5 md:py-16">
-        <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 md:grid-cols-[1fr_280px]">
+        <div className="mx-auto grid max-w-7xl text-center sm:text-start items-center gap-10 px-6 md:grid-cols-[1fr_280px]">
           <div>
-            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-3 py-1 text-xs font-semibold text-primary">
-              • Our Mission
-            </span>
-            <h2 className="mt-3 text-3xl font-bold md:text-4xl italic-serif">
+            <Pill text='Our Mission' />
+            <h2 className="mt-3 text-xl sm:text-3xl font-bold md:text-4xl italic-serif">
               "More Than Technology"
             </h2>
-            <p className="mt-4 text-muted-foreground">
-              For Visa Guard Africa, this is more than a digital platform. <br /> It is a mission to
-              protect people from losing their dreams, money, and future to scams <br /> while
+            <p className="sm:mt-4 text-xs sm:text-sm text-muted-foreground">
+              For Visa Guard Africa, this is more than a digital platform. It is a mission to
+              protect people from losing their dreams, money, and future to scams while
               creating safer pathways to global opportunities for Africans everywhere.
             </p>
           </div>
@@ -304,24 +297,25 @@ function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-brand-footer py-16 text-white mb-15">
+      <section className="bg-brand-footer mx-6 rounded-md sm:mx-0 mb-20 py-10 sm:py-20 text-white">
         <div className="mx-auto max-w-3xl px-6 text-center">
-          <h2 className="text-3xl font-bold md:text-4xl">Start Your Visa Journey Safely</h2>
-          <p className="mt-3 text-white/70">
+          <h2 className="text-xl sm:text-3xl font-bold md:text-4xl">Start Your Visa Journey Safely</h2>
+          <p className="mt-3 text-[.6rem] sm:text-xs md:text-sm text-white/70">
             Find verified visa professionals and process applications with greater confidence.
           </p>
+          <WaitListPromo />
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <button
               onClick={() => setDl(true)}
-              className="rounded-lg bg-white px-6 py-3 text-sm font-semibold text-foreground w-full md:w-fit"
+              className="rounded-lg bg-white px-6 py-3 text-xs sm:text-sm font-semibold text-foreground w-full md:w-fit"
             >
               Download the App
             </button>
             <Link
               to="/waitlist"
-              className="flex justify-center items-center gap-2 rounded-lg border border-white/30 px-6 py-3 text-sm font-semibold text-white  w-full md:w-fit hover:bg-white/10"
+              className="flex justify-center items-center gap-2 rounded-lg border border-white/30 px-6 py-3 text-xs sm:text-sm font-semibold text-white  w-full md:w-fit hover:bg-white/10"
             >
-              Join Waitlist
+              <Users className="h-4 w-4" /> Join Waitlist
             </Link>
           </div>
         </div>

@@ -18,6 +18,8 @@ import {
   UserCheck,
   MapPin,
   CircleCheckBig,
+  Plus,
+  Minus
 } from "lucide-react";
 import heroPhones from "@/assets/hero-phones.png";
 import planeFront from "@/assets/plane-front.png";
@@ -30,6 +32,7 @@ import agent2 from "@/assets/agent2.jpg";
 import agent3 from "@/assets/agent3.jpg";
 import singlePhone from "@/assets/singlePhone.png";
 import WaitListPromo from "@/components/WaitListPromo";
+import Pill from "@/components/Pill";
 
 export const Route = createFileRoute("/")({
   component: HomePage,
@@ -184,7 +187,7 @@ function HomePage() {
   };
 
   useEffect(() => {
-    const timer = setInterval(() => {
+    const timer = setInterval(() => { 
       setActiveAgent((prev) => (prev + 1) % agents.length);
     }, 3000);
     return () => clearInterval(timer);
@@ -193,19 +196,16 @@ function HomePage() {
   return (
     <PageLayout>
       {/* HERO */}
-      <section className="bg-hero-cream">
-        <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 py-18 md:grid-cols-2 md:py-24">
-          <div className="space-y-7">
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-2 py-1 md:px-4 md:py-1.5 text-[.6rem] md:text-xs font-medium text-primary shadow-sm">
-              <span className="h-1 w-1 rounded-full bg-primary" />
-              Protecting Africans From Visa Scams
-            </div>
-            <h1 className="text-3xl font-bold leading-[1.1] text-foreground md:text-6xl">
+      <section className="bg-white md:bg-hero-cream">
+        <div className="mx-auto grid max-w-7xl items-center md:text-start text-center gap-10 px-6 pt-18 md:grid-cols-2 md:py-24">
+          <div className="space-y-3 sm:space-y-5">
+            <Pill text='Protecting Africans From Visa Scams' />
+            <h1 className="text-2xl sm:text-3xl font-bold leading-[1.1] text-foreground md:text-6xl">
               Connect With <span className="italic-serif text-primary">Trusted</span> &{" "}
               <span className="italic-serif text-primary">Verified</span> Visa Experts Across
               Africa.
             </h1>
-            <p className="max-w-xl text-sm text-muted-foreground md:text-lg">
+            <p className="max-w-xl text-[.6rem] sm:text-xs md:text-sm text-muted-foreground">
               Visa Guard Africa Helps Travelers Avoid Scams Through Verified Agents, Secure Escrow
               Payments, And Transparent Application Tracking.
             </p>
@@ -213,13 +213,13 @@ function HomePage() {
             <div className="flex flex-wrap items-center gap-3">
               <button
                 onClick={() => setDownload(true)}
-                className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90 w-full md:w-fit justify-center"
+                className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3.5 text-xs sm:text-sm font-semibold text-primary-foreground transition hover:bg-primary/90 w-full md:w-fit justify-center"
               >
                 <Download className="h-4 w-4" /> Download App
               </button>
               <Link
                 to="/waitlist"
-                className="inline-flex items-center gap-2 rounded-lg border border-border bg-background px-6 py-3.5 text-sm font-semibold transition hover:bg-accent justify-center w-full md:w-fit"
+                className="inline-flex items-center gap-2 rounded-lg border border-border bg-background px-6 py-3.5 text-xs sm:text-sm font-semibold transition hover:bg-accent justify-center w-full md:w-fit"
               >
                 <Users className="h-4 w-4" /> Join the Waitlist
               </Link>
@@ -245,7 +245,7 @@ function HomePage() {
               .map((_, i) => (
                 <span
                   key={i}
-                  className="flex items-center gap-8 text-sm font-medium text-primary-foreground"
+                  className="flex items-center gap-1 text-xl text-primary-foreground"
                 >
                   <span>Verification</span>
                   <span className="text-primary-foreground/40">·</span>
@@ -286,25 +286,20 @@ function HomePage() {
       </div>
 
       {/* TRAVEL SMARTER */}
-      <section className="py-20">
-        <div className="mx-auto max-w-7xl px-6">
+      <section className="md:py-20 py-5">
+        <div className="mx-auto max-w-7xl sm:px-6 px-2">
           <div className="text-center">
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-medium text-primary shadow-sm">
-              <span className="h-1 w-1 rounded-full bg-primary" />
-              Secure Visa Processing
-            </div>
-            <h2 className="text-3xl mt-3 font-bold md:text-5xl">
+            <Pill text='Secure Visa Processing' />
+            <h2 className="text-xl sm:text-3xl mt-3 font-bold md:text-5xl">
               Travel <span className="italic-serif text-primary">Smarter.</span> Travel{" "}
               <span className="italic-serif text-primary">Protected.</span>
             </h2>
-            <p className="mt-4 text-muted-foreground text-xs md:text-sm">
+            <p className="sm:mt-4 text-muted-foreground text-[.6rem] sm:text-xs md:text-sm sm:px-0 px-6">
               From Verified Visa Support To Secure Travel Guidance, Visa Guard Africa
-            </p>
-            <p className="mt-1 text-muted-foreground text-xs md:text-sm">
               Helps Traveler Move Forward With Greater Confidence & Protection.
             </p>
           </div>
-          <div className="mt-12 grid gap-5 md:grid-cols-4 md:grid-rows-2">
+          <div className="mt-5 sm:mt-12 grid gap-5 md:grid-cols-4 md:grid-rows-2">
             {/* Large plane - spans 1 col, 2 rows */}
             <div className="relative overflow-hidden rounded-2xl md:col-span-2 md:row-span-2">
               <img
@@ -381,16 +376,15 @@ function HomePage() {
       </section>
 
       {/* TRUST GRID */}
-      <section className="bg-accent/40 md:py-20 py-10">
-        <div className="mx-auto max-w-7xl px-2 md:px-6">
+      <section className="bg-accent/40 md:py-20 py-5">
+        <div className="mx-auto max-w-7xl px-4 md:px-6">
           <div className="text-center">
-            <h2 className="text-3xl font-bold md:text-4xl">
+            <h2 className="text-xl sm:text-3xl font-bold md:text-4xl">
               Built Around <span className="italic-serif text-primary">Trust</span> &{" "}
               <span className="italic-serif text-primary">Protection</span>
             </h2>
-            <p className="mt-3 mx-auto max-w-xl text-muted-foreground capitalize">
-              Visa Guard Africa combines verification, escrow protection, and{" "}
-              <br className="hidden md:block" />
+            <p className="sm:mt-3 text-[.6rem] sm:text-xs md:text-sm mx-auto max-w-xl text-muted-foreground capitalize">
+              Visa Guard Africa combines verification, escrow protection, and
               transparent tracking to create a safer visa experience for Africans.
             </p>
           </div>
@@ -448,15 +442,14 @@ function HomePage() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section className="py-20">
+      <section className="md:py-20 py-5">
         <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 md:grid-cols-2">
           <div>
-            <h2 className="text-3xl font-bold md:text-4xl">
+            <h2 className="text-xl sm:text-3xl font-bold md:text-4xl">
               How It <span className="italic-serif text-primary">Works</span>
             </h2>
-            <p className="mt-3 text-muted-foreground">
-              A simple, transparent, end-to-end process designed to protect travelers from end to
-              end.
+            <p className="mt-3 text-[.6rem] sm:text-xs md:text-sm text-muted-foreground">
+              A simple, transparent, and secure process designed to protect travelers from fraud.
             </p>
             <ol className="mt-8 space-y-5">
               {[
@@ -466,13 +459,13 @@ function HomePage() {
                 ["Visa & Trip Done", "Travel with peace of mind, fully supported."],
                 ["Complete Your Journey", "We stay with you through arrival and beyond."],
               ].map(([t, d], i) => (
-                <li key={t} className="flex gap-4">
-                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-primary text-sm font-bold text-primary-foreground">
+                <li key={t} className="flex gap-4 items-center">
+                  <span className="grid sm:h-9 sm:w-9 h-7 w-7 shrink-0 place-items-center rounded-full bg-primary text-sm font-bold text-primary-foreground">
                     {i + 1}
                   </span>
                   <div>
-                    <h4 className="font-semibold">{t}</h4>
-                    <p className="text-sm text-muted-foreground">{d}</p>
+                    <h4 className="font-semibold text-sm sm:text-base">{t}</h4>
+                    <p className="text-[.6rem] sm:text-sm text-muted-foreground">{d}</p>
                   </div>
                 </li>
               ))}
@@ -494,17 +487,14 @@ function HomePage() {
       </section>
 
       {/* AGENTS */}
-      <section className="bg-accent/40 py-20">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-medium text-primary shadow-sm">
-            <span className="h-1 w-1 rounded-full bg-primary" />
-            Verified Marketplace
-          </div>
-          <h2 className="mt-4 text-3xl font-bold md:text-4xl">
+      <section className="bg-accent/40 md:py-20 py-5">
+        <div className="mx-auto max-w-7xl px-6 text-center sm:text-start">
+          <Pill text='Verified Marketplace' />
+          <h2 className="mt-4 text-xl sm:text-3xl font-bold md:text-4xl">
             Explore <span className="italic-serif text-primary">Trusted & Verified</span> <br />
             Visa Services And Agents.
           </h2>
-          <p className="mt-3 max-w-md text-muted-foreground">
+          <p className="sm:mt-3 text-[.6rem] sm:text-xs md:text-sm max-w-md text-muted-foreground">
             Connect With Verified Visa Professionals Offering Secure, Transparent, And
             Escrow-Protected Immigration Support Across Multiple Countries.
           </p>
@@ -517,7 +507,7 @@ function HomePage() {
           </div>
 
           {/* Mobile Fade Carousel */}
-          <div className="relative mt-10 md:hidden">
+          <div className="relative mt-5 md:hidden">
             {agents.map((a, i) => (
               <div
                 key={a.name}
@@ -530,26 +520,26 @@ function HomePage() {
             ))}
           </div>
 
-          <button className="mt-8 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90">
+          <button className="mt-8 rounded-lg bg-primary px-6 py-3 text-xs md:text-sm w-full md:w-fit font-semibold text-primary-foreground hover:bg-primary/90">
             View Services
           </button>
         </div>
       </section>
 
       {/* PAYMENTS BLOCK */}
-      <section className="md:pt-20 pt-20 md:bg-accent/50">
+      <section className="md:pt-20 pt-20 md:bg-accent/50 mx-6 md:mx-0">
         <div className="mx-auto grid max-w-7xl items-center gap-10 rounded-3xl bg-accent/50 md:bg-transparent pt-10 px-6 md:grid-cols-2 md:pt-16 justify-center text-center md:text-start">
           <div>
-            <h2 className="text-3xl font-bold md:text-6xl">
+            <h2 className="text-xl sm:text-3xl font-bold md:text-6xl">
               Your Payments Stay <span className="italic-serif text-primary">Secured</span> &{" "}
               <span className="italic-serif text-primary">Protected</span>
             </h2>
-            <p className="mt-3 text-muted-foreground">
+            <p className="md:mt-3 text-[.6rem] sm:text-xs md:text-sm text-muted-foreground">
               Funds are held safely in escrow and released as your visa milestones are completed.
             </p>
             <button
               onClick={() => setDownload(true)}
-              className="mt-6 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90"
+              className="mt-2 sm:mt-6 rounded-lg bg-primary px-12 py-3 text-xs sm:text-sm text-primary-foreground hover:bg-primary/90"
             >
               Learn More
             </button>
@@ -560,17 +550,15 @@ function HomePage() {
 
       {/* FAQ */}
       <section className="py-20">
-        <div className="mx-auto max-w-3xl px-6">
-          <p className="text-center text-sm font-semibold uppercase tracking-widest text-primary">
-            Support / Contact
-          </p>
-          <h2 className="mt-2 text-center text-3xl font-bold md:text-4xl">
+        <div className="mx-auto max-w-3xl px-6 text-center sm:text-start">
+          <Pill text='Frequently Asked Questions' />
+          <h2 className="mt-2 text-center text-xl sm:text-3xl font-bold md:text-4xl">
             Frequently Asked Questions
           </h2>
-          <p className="mt-3 text-center text-muted-foreground">
-            Everything you need to know about working with verified visa agents.
+          <p className="sm:mt-3 text-[.6rem] sm:text-xs md:text-sm text-center text-muted-foreground">
+            Browse Most Frequent From Travelers And Agents Using The Visa Guard Application
           </p>
-          <div className="mt-10 space-y-3">
+          <div className="mt-5 sm:mt-10 space-y-3">
             {faqs.map((f, i) => (
               <FaqItem key={i} {...f} defaultOpen={i === 0} />
             ))}
@@ -579,28 +567,23 @@ function HomePage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-brand-footer mb-20 py-20 text-white">
+      <section className="bg-brand-footer mx-6 sm:rounded-none rounded-md sm:mx-0 mb-20 py-10 sm:py-20 text-white">
         <div className="mx-auto max-w-3xl px-6 text-center">
-          <h2 className="text-3xl font-bold md:text-4xl">Start Your Visa Journey Safely</h2>
-          <p className="mt-3 text-white/70">
+          <h2 className="text-xl sm:text-3xl font-bold md:text-4xl">Start Your Visa Journey Safely</h2>
+          <p className="mt-3 mb-1 text-[.6rem] sm:text-xs md:text-sm text-white/70">
             Find verified visa professionals and process applications with greater confidence.
           </p>
-          <div className="mt-5 flex justify-center gap-2 text-yellow-400">
-            <Star className="h-5 w-5 fill-current" />
-            <Star className="h-5 w-5 fill-current" />
-            <Star className="h-5 w-5 fill-current" />
-          </div>
-          <p className="mt-1 text-sm text-white/70">1000+ Users Already On Waitlist</p>
+          <WaitListPromo centered />
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <button
               onClick={() => setDownload(true)}
-              className="rounded-lg bg-white px-6 py-3 text-sm font-semibold text-foreground w-full md:w-fit"
+              className="rounded-lg bg-white px-6 py-3 text-xs sm:text-sm font-semibold text-foreground w-full md:w-fit"
             >
               Download the App
             </button>
             <Link
               to="/waitlist"
-              className="flex justify-center items-center gap-2 rounded-lg border border-white/30 px-6 py-3 text-sm font-semibold text-white  w-full md:w-fit hover:bg-white/10"
+              className="flex justify-center items-center gap-2 rounded-lg border border-white/30 px-6 py-3 text-xs sm:text-sm font-semibold text-white  w-full md:w-fit hover:bg-white/10"
             >
               <Users className="h-4 w-4" /> Join Waitlist
             </Link>
@@ -616,17 +599,22 @@ function HomePage() {
 function FaqItem({ q, a, defaultOpen }: { q: string; a: string; defaultOpen?: boolean }) {
   const [open, setOpen] = useState(!!defaultOpen);
   return (
-    <div className="rounded-xl border border-border bg-background">
+    <div className="">
       <button
         onClick={() => setOpen(!open)}
-        className="flex w-full items-center justify-between gap-4 p-5 text-left"
+        className="flex w-full items-center justify-between text-xs sm:text-sm gap-4 p-2 sm:p-5 text-left bg-[#F3F3F4] rounded mb-1"
       >
-        <span className="font-semibold">{q}</span>
-        <ChevronDown
-          className={`h-5 w-5 text-muted-foreground transition ${open ? "rotate-180" : ""}`}
+        <span className="font-medium">{q}</span>
+       {open ?  (<Minus
+          className={`h-3 w-3 text-muted-foreground transition`}
+        />)
+      : (
+         <Plus
+          className={`h-3 w-3 text-muted-foreground transition`}
         />
+      )}
       </button>
-      {open && <p className="px-5 pb-5 text-sm text-muted-foreground">{a}</p>}
+      {open && <p className="p-2 text-[.55rem] sm:text-sm text-muted-foreground text-start bg-[#f7f7f7] rounded">{a}</p>}
     </div>
   );
 }
@@ -682,43 +670,44 @@ function TrustCard({
 
 function AgentCard({ agent }: { agent: (typeof agents)[0] }) {
   return (
-    <div className="overflow-hidden rounded-2xl border border-border bg-background">
+    <div className="overflow-hidden rounded-2xl bg-background">
       <img src={agent.img} alt={agent.name} className="h-80 w-full object-cover" loading="lazy" />
-      <div className="p-5">
-        <div className="flex items-start justify-between gap-2">
+      <div className="sm:p-5 p-3 bg-[#FAFAFA]">
+        <div className="flex items-center justify-between gap-2">
           <div className="flex items-center gap-1.5">
             <h4 className="font-bold">{agent.name}</h4>
             <BadgeCheck fill="#28A745" className="h-5 w-5" color="#fff" />
           </div>
           <div className="text-right">
-            <p className="text-[10px] text-muted-foreground">Starting from</p>
-            <p className="text-sm font-bold text-primary">{agent.price}</p>
+            <p className="text-[8px] sm:text-[10px] text-muted-foreground">Starting from</p>
+            <p className="text-[.6rem] sm:text-xs font-bold text-primary">{agent.price}</p>
           </div>
         </div>
         <div className="mt-1 flex items-center gap-1.5 text-sm text-muted-foreground">
-          <Star className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400" />
-          <span className="font-medium text-foreground">{agent.rating}</span>
-          <span>·</span>
-          <span>{agent.cases} successful cases</span>
+          <Star className="sm:h-3.5 sm:w-3.5 h-2.5 w-2.5 fill-yellow-400 text-yellow-400" />
+          <span className="font-medium text-[.6rem] sm:text-xs md:text-sm text-foreground">{agent.rating}</span>
+          <span className='text-[.6rem]'>•</span>
+          <span className="text-[.6rem] sm:text-xs md:text-sm">{agent.cases} successful cases</span>
         </div>
         <div className="mt-3 flex flex-wrap gap-1.5">
           {agent.tags.map((tag) => (
-            <span key={tag} className="rounded-md border border-border px-2.5 py-0.5 text-xs">
+            <span key={tag} className="rounded bg-[#F3F3F4] px-2.5 py-0.5 text-[.5rem] sm:text-xs">
               {tag}
             </span>
           ))}
         </div>
-        <p className="mt-3 text-sm text-muted-foreground">{agent.desc}</p>
-        <div className="mt-4 flex flex-wrap gap-3 border-t border-border pt-4 text-xs text-muted-foreground">
-          <span className="flex items-center gap-1">
-            <ShieldCheck className="h-3 w-3" /> Escrow Protected
+        <p className="mt-3 text-[.55rem] text-start sm:text-sm text-muted-foreground bg-white p-2 rounded">{agent.desc}</p>
+        <div className="mt-2 flex flex-wrap gap-3 text-xs text-muted-foreground">
+          {[
+            {Icon: ShieldCheck, text: "Escrow Protected"},
+            {Icon: FileCheck, text: "NDPR Complaint"},
+            {Icon: FileCheck, text: "Verified Documents"}
+        ].map((i, idx)=> (
+          
+           <span key={idx} className="flex items-center text-[.35rem] bg-[#F7F7F7] rouded-full sm:text-xs gap-1 p-1">
+            <i.Icon className="h-2 w-2" /> {i.text}
           </span>
-          <span className="flex items-center gap-1">
-            <FileCheck className="h-3 w-3" /> NDPR Compliant
-          </span>
-          <span className="flex items-center gap-1">
-            <FileCheck className="h-3 w-3" /> Verified Documents
-          </span>
+        ))}
         </div>
       </div>
     </div>
