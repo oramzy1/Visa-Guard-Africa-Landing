@@ -342,7 +342,7 @@ function WaitlistPage() {
 
     try {
       const res = await fetch(
-        "https://waitlist.visaguardafrica.com/waitlist.php",
+        "https://visaguardafrica.com/waitlist.php",
         {
           method: "POST",
           headers: {
