@@ -29,27 +29,27 @@ export function Footer() {
         <div>
           <h4 className="mb-4 text-sm font-semibold tracking-wider text-white">QUICK NAVIGATION</h4>
           <ul className="space-y-3 text-xs sm:text-sm">
-            <li><Link to="/about" className="hover:text-white">• About Us</Link></li>
-            <li><Link to="/process" className="hover:text-white">• Security</Link></li>
-            <li><Link to="/contact" className="hover:text-white">• Support</Link></li>
-            <li><a href="#" className="hover:text-white">• Cookies policy</a></li>
+            <li><Link to="/about" className="hover:text-white">About Us</Link></li>
+            <li><Link to="/process" className="hover:text-white">Security</Link></li>
+            <li><Link to="/contact" className="hover:text-white">Support</Link></li>
+            <li><a href="#" className="hover:text-white">Cookies policy</a></li>
           </ul>
         </div>
 
         <div>
           <h4 className="mb-4 text-sm font-semibold tracking-wider text-white">SUPPORT</h4>
           <ul className="space-y-3 text-xs sm:text-sm">
-            <li>• Frequently Asked Questions</li>
-            <li>• Privacy policy</li>
-            <li>• General terms and conditions</li>
+            <li>Frequently Asked Questions</li>
+            <li>Privacy policy</li>
+            <li>General terms and conditions</li>
           </ul>
         </div>
 
         <div>
           <h4 className="mb-4 text-sm font-semibold tracking-wider text-white">CONTACT</h4>
           <ul className="space-y-3 text-xs sm:text-sm">
-            <li>• Email : support@visaguardafrica.com</li>
-            <li>• Lagos, Nigeria,&nbsp;&nbsp; +234 1 123 4567 899</li>
+            <li>Email : support@visaguardafrica.com</li>
+            <li>Lagos, Nigeria,&nbsp;&nbsp; +234 1 123 4567 899</li>
           </ul>
         </div>
       </div>

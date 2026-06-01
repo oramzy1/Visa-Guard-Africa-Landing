@@ -87,11 +87,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
         {
       property: "og:url",
-      content: "https://waitlist.visa-guard-africa.workers.dev",
+      content: "https://waitlist.visaguardafrica.com",
     },
     {
       property: "og:image",
-      content: "https://waitlist.visa-guard-africa.workers.dev/image.png",
+      content: "https://waitlist.visaguardafrica.com//image.png",
     },
       { name: "twitter:card", content: "summary" },
     ],

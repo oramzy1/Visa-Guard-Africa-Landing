@@ -31,8 +31,6 @@ export function PageLoader() {
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-background/80 backdrop-blur-sm pointer-events-none">
       <div className="relative flex h-24 w-24 items-center justify-center">
-        {/* <span className="absolute inset-0 rounded-full bg-primary/20 animate-brand-ring" /> */}
-        {/* <span className="absolute inset-2 rounded-full bg-primary/15 animate-brand-ring [animation-delay:200ms]" /> */}
         <img
           src={logo}
           alt="Loading"

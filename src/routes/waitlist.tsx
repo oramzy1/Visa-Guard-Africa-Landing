@@ -342,7 +342,7 @@ function WaitlistPage() {
 
     try {
       const res = await fetch(
-        "https://visa-guard-africa-622504928864.africa-south1.run.app/api/waitlist/",
+        "http://waitlist.visaguardafrica.com/waitlist.php",
         {
           method: "POST",
           headers: {
