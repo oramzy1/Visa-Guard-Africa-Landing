@@ -1,5 +1,12 @@
 {
+  "buildCommand": "npm run build",
+  "outputDirectory": ".output/public",
+  "functions": {
+    "api/server.js": {
+      "includeFiles": ".output/server/**"
+    }
+  },
   "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
+    { "source": "/(.*)", "destination": "/api/server" }
   ]
 }
