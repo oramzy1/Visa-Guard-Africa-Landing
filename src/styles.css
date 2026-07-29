@@ -32,8 +32,8 @@
   --color-brand-footer: var(--brand-footer);
   --color-brand-cream: var(--brand-cream);
   --color-success: var(--success);
-  --font-display: "Plus Jakarta Sans", system-ui, sans-serif;
-  --font-serif-italic: "Instrument Serif", Georgia, serif;
+  --font-display: 'League Spartan', sans-serif;
+  --font-body: 'Manrope', system-ui, sans-serif;
 }
 
 :root {
@@ -97,7 +97,6 @@
 
 .italic-serif {
   font-family: var(--font-serif-italic);
-  font-style: italic;
   font-weight: 400;
 }
 
