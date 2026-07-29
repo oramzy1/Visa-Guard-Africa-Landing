@@ -512,8 +512,8 @@ function HomePage() {
             <h2 className="text-xl tracking-tight text-balance mt-3 sm:text-3xl font-extrabold md:text-4xl">
               How It <span className="italic-serif text-primary">Works</span>
             </h2>
-            <p className="mt-2 text-[.7rem] sm:text-sm md:text-sm text-muted-foreground">
-              A simple, transparent, and secure process designed to protect travelers from fraud.
+            <p className="text-[.7rem] sm:text-sm md:text-sm text-muted-foreground">
+              A simple, transparent, and secure process designed to protect travelers from visa fraud.
             </p>
             <ol className="mt-8 space-y-5">
               {[
@@ -622,7 +622,7 @@ function HomePage() {
           <p className="sm:mt-4 text-[.7rem] text-balance sm:text-sm md:text-sm text-center text-muted-foreground">
             Browse Most Frequent questions From Travelers And Agents Using The Visa Guard Application
           </p>
-          <div className="mt-5 sm:mt-10 space-y-3">
+          <div className="mt-3 sm:mt-10 space-y-3">
             {faqs.map((f, i) => (
               <FaqItem key={i} {...f} defaultOpen={i === 0} />
             ))}
