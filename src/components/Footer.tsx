@@ -14,7 +14,7 @@ export function Footer() {
               <div className="text-[10px] text-white/60">Protecting Africans from visa scams</div>
             </div>
           </div>
-          <p className="max-w-xs text-xs sm:text-sm text-white/70">
+          <p className="max-w-xs text-xs sm:text-xs leading-relaxed text-white/70">
             Helping Africans process visas more safely through verified professionals, secure escrow payments, and transparent travel support.
           </p>
           <div className="flex gap-3">
@@ -28,7 +28,7 @@ export function Footer() {
 
         <div>
           <h4 className="mb-4 text-sm font-semibold tracking-wider text-white">QUICK NAVIGATION</h4>
-          <ul className="space-y-3 text-xs sm:text-sm">
+          <ul className="space-y-3 text-xs sm:text-xs">
             <li><Link to="/about" className="hover:text-white">About Us</Link></li>
             <li><Link to="/process" className="hover:text-white">Security</Link></li>
             <li><Link to="/contact" className="hover:text-white">Support</Link></li>
@@ -38,7 +38,7 @@ export function Footer() {
 
         <div>
           <h4 className="mb-4 text-sm font-semibold tracking-wider text-white">SUPPORT</h4>
-          <ul className="space-y-3 text-xs sm:text-sm">
+          <ul className="space-y-3 text-xs sm:text-xs">
             <li>Frequently Asked Questions</li>
             <li>Privacy policy</li>
             <li>General terms and conditions</li>
@@ -47,9 +47,9 @@ export function Footer() {
 
         <div>
           <h4 className="mb-4 text-sm font-semibold tracking-wider text-white">CONTACT</h4>
-          <ul className="space-y-3 text-xs sm:text-sm">
+          <ul className="space-y-3 text-xs sm:text-xs">
             <li>Email : support@visaguardafrica.com</li>
-            <li>Lagos, Nigeria,&nbsp;&nbsp; +234 1 123 4567 899</li>
+            <li>Lagos, Nigeria,&nbsp;&nbsp; </li>
           </ul>
         </div>
       </div>

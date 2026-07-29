@@ -35,7 +35,7 @@ export function Header() {
         <div className="hidden md:block">
           <Link
           to={'/waitlist'}
-            className="rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90"
+            className="rounded-md bg-primary px-6 py-3 text-sm font-semibold tracking-tight text-primary-foreground transition hover:bg-primary/90"
           >
             Get Started Now
           </Link>

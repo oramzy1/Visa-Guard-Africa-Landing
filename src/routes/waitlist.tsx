@@ -463,7 +463,7 @@ function WaitlistPage() {
           </div>
 
           {/* ── RIGHT: Form card ── */}
-          <div className="rounded-2xl w-full border border-border bg-background p-4 md:p-8 shadow-xl">
+          <div className="rounded-2xl w-full border border-border bg-background p-5 md:p-8 shadow-md">
             {!submitted ? (
               <>
                 <div className="mb-6">
@@ -613,10 +613,10 @@ function WaitlistPage() {
                       <ShieldCheck className="h-3.5 w-3.5 text-primary" />
                       Security Verification
                     </p>
-                    <div className="flex justify-center md:justify-start w-full overflow-hidden max-w-[200px]  md:max-w-[300px]">
+                    <div className="flex justify-center md:justify-start w-full overflow-hidden max-w-50  md:max-w-75">
                       <div
                         ref={turnstileRef}
-                        className="cf-turnstile w-full max-w-[190px] md:max-w-[300px]"
+                        className="cf-turnstile w-full max-w-47.5 md:max-w-75"
                       />
                     </div>
                     {turnstileToken ? (

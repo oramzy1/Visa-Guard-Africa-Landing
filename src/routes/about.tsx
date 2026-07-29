@@ -12,6 +12,8 @@ import {
   Star,
   Download,
   CircleCheckBig,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import worldMap from "@/assets/worldMap.png";
 import founder from "@/assets/Founder.png";
@@ -75,66 +77,98 @@ const trustFeatures = [
   },
 ];
 
+// Splits an array into equal-sized groups — used to build one "slide" per
+// group of trust cards so the carousel shows N cards per view instead of
+// stacking them vertically.
+function chunk<T>(items: T[], size: number): T[][] {
+  if (size <= 0) return [items];
+  const out: T[][] = [];
+  for (let i = 0; i < items.length; i += size) {
+    out.push(items.slice(i, i + size));
+  }
+  return out;
+}
+
 function AboutPage() {
   const [dl, setDl] = useState(false);
+
+  // Trust grid carousel state
   const [activeTrust, setActiveTrust] = useState(0);
-  const touchStart = useRef<{ x: number; y: number } | null>(null);
+  const [trustPerView, setTrustPerView] = useState(1);
+  const touchStart = useRef<{ x: number } | null>(null);
   const autoTrustRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  const handleTrustTouchStart = (e: React.TouchEvent) => {
-    // Pause auto-advance while user interacts
-    clearInterval(autoTrustRef.current!);
-    touchStart.current = {
-      x: e.touches[0].clientX,
-      y: e.touches[0].clientY,
+  const trustPages = chunk(trustFeatures, trustPerView);
+  const trustTotal = trustPages.length;
+  const safeTrustIndex = Math.min(activeTrust, trustTotal - 1);
+
+  const goToTrust = (index: number) =>
+    setActiveTrust(((index % trustTotal) + trustTotal) % trustTotal);
+
+  const startTrustAutoplay = () => {
+    if (autoTrustRef.current) clearInterval(autoTrustRef.current);
+    autoTrustRef.current = setInterval(() => {
+      setActiveTrust((p) => (p + 1) % trustTotal);
+    }, 4000);
+  };
+
+  // Responsive cards-per-slide: 1 on mobile, 2 on tablet, 3 on desktop
+  useEffect(() => {
+    const computeTrustPerView = () => {
+      const w = window.innerWidth;
+      if (w >= 1024) return 3;
+      if (w >= 640) return 2;
+      return 1;
     };
+    const update = () => setTrustPerView(computeTrustPerView());
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
+  // Autoplay, restarts whenever the number of slides changes (e.g. on resize)
+  useEffect(() => {
+    startTrustAutoplay();
+    return () => {
+      if (autoTrustRef.current) clearInterval(autoTrustRef.current);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [trustTotal]);
+
+  const handleTrustTouchStart = (e: React.TouchEvent) => {
+    if (autoTrustRef.current) clearInterval(autoTrustRef.current);
+    touchStart.current = { x: e.touches[0].clientX };
   };
 
   const handleTrustTouchEnd = (e: React.TouchEvent) => {
     if (!touchStart.current) return;
     const dx = e.changedTouches[0].clientX - touchStart.current.x;
-    const dy = e.changedTouches[0].clientY - touchStart.current.y;
-    const THRESHOLD = 40; // min px to count as intentional swipe
+    const THRESHOLD = 40; // min px to count as an intentional swipe
 
-    const isHorizontal = Math.abs(dx) > Math.abs(dy);
-    const isVertical = Math.abs(dy) > Math.abs(dx);
-
-    if (isHorizontal && Math.abs(dx) > THRESHOLD) {
-      // swipe left → next, swipe right → previous
-      setActiveTrust((p) =>
-        dx < 0
-          ? (p + 1) % trustFeatures.length
-          : (p - 1 + trustFeatures.length) % trustFeatures.length,
-      );
-    } else if (isVertical && Math.abs(dy) > THRESHOLD) {
-      // swipe up → next, swipe down → previous
-      setActiveTrust((p) =>
-        dy < 0
-          ? (p + 1) % trustFeatures.length
-          : (p - 1 + trustFeatures.length) % trustFeatures.length,
-      );
+    if (dx <= -THRESHOLD) {
+      // swipe left → next
+      goToTrust(safeTrustIndex + 1);
+    } else if (dx >= THRESHOLD) {
+      // swipe right → previous
+      goToTrust(safeTrustIndex - 1);
     }
 
     touchStart.current = null;
-
-    // Resume auto-advance after 5s of inactivity
-    autoTrustRef.current = setInterval(
-      () => setActiveTrust((p) => (p + 1) % trustFeatures.length),
-      2800,
-    );
+    startTrustAutoplay();
   };
+
   return (
     <PageLayout>
       <section className="bg-white md:bg-hero-cream">
         <div className="mx-auto grid max-w-7xl items-center text-center sm:text-start gap-10 px-6 py-18 md:grid-cols-2">
           <div className="spce-y-3 sm:space-y-5">
-           <Pill text='Our Story' />
-            <h1 className="text-2xl sm:text-3xl font-bold leading-tight md:text-5xl">
+            <Pill text="About Visa Guard Africa Technologies" />
+            <h1 className="text-2xl text-balance tracking-tight mt-1 mb-2 sm:text-3xl font-bold leading-tight md:text-5xl">
               Built From <span className="italic-serif text-primary">Real Experience</span>
               <br className="md:flex hidden" /> Designed to Protect{" "}
               <span className="italic-serif text-primary">Millions</span>
             </h1>
-            <p className="text-muted-foreground text-[.6rem] sm:text-xs md:text-sm">
+            <p className="text-muted-foreground mt-2 text-[.7rem] sm:text-xs md:text-sm">
               Visa Guard Africa Technologies LTD was created to help Africans avoid visa and
               relocation scams through trust, transparency, and technology-driven protection.
             </p>
@@ -142,13 +176,13 @@ function AboutPage() {
             <div className="flex flex-wrap gap-3">
               <button
                 onClick={() => setDl(true)}
-                className="rounded-lg bg-primary px-5 py-3 text-xs sm:text-sm font-semibold flex items-center gap-1 w-full md:w-fit text-primary-foreground hover:bg-primary/90 justify-center"
+                className="rounded-lg bg-primary tracking-tight px-5 py-3 text-xs sm:text-sm font-semibold flex items-center gap-1 w-full md:w-fit text-primary-foreground hover:bg-primary/90 justify-center"
               >
                 <Download size={15} /> Download App
               </button>
               <Link
                 to="/waitlist"
-                className="rounded-lg border border-border bg-background px-5 py-3 text-xs sm:text-sm font-semibold justify-center  flex items-center gap-1 w-full md:w-fit hover:bg-accent"
+                className="rounded-lg border tracking-tight border-border bg-background px-5 py-3 text-xs sm:text-sm font-semibold justify-center  flex items-center gap-1 w-full md:w-fit hover:bg-accent"
               >
                 <Users size={15} /> Join the Waitlist
               </Link>
@@ -168,11 +202,11 @@ function AboutPage() {
       {/* Founder */}
       <section className="py-8 sm:py-16">
         <div className="mx-auto max-w-7xl md:px-6">
-          <div className="overflow-hidden md:rounded-3xl bg-primary text-primary-foreground">
-            <div className="grid items-center gap-8 p-4 md:grid-cols-[280px_1fr] md:p-12">
-              <div className="overflow-hidden rounded-xl relative">
+          <div className="overflow-hidden md:rounded-4xl bg-primary text-primary-foreground">
+            <div className="grid items-center gap-8 p-6 md:grid-cols-[280px_1fr] md:p-14">
+              <div className="overflow-hidden border-5 rounded-xl relative">
                 <img
-                  src={founder}
+                  src={founder1}
                   alt="Founder"
                   className="h-84 w-full object-cover"
                   loading="lazy"
@@ -187,7 +221,9 @@ function AboutPage() {
                 <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-primary-foreground/70">
                   Founder Story
                 </p>
-                <h2 className="mt-2 text-2xl font-semibold md:text-3xl">Turning Pain Into Purpose</h2>
+                <h2 className="mt-2 text-2xl tracking-tight font-extrabold md:text-3xl">
+                  Turning Pain Into Purpose
+                </h2>
                 <p className="mt-4 text-xs sm:text-sm leading-relaxed text-primary-foreground/85">
                   <strong>Visa Guard Africa Technologies</strong> was founded by{" "}
                   <strong>Chukwudi Eze</strong> after personally experiencing the devastating impact
@@ -209,65 +245,101 @@ function AboutPage() {
 
       {/* Vision */}
       <section className="pb-5 sm:pb-16">
-        <div className="mx-auto max-w-7xl text-center sm:text-start px-6">
-          <Pill text='The Vision' />
-          <h2 className="sm:mt-3 max-w-2xl text-xl sm:text-3xl font-bold md:text-4xl">
-            Building Africa's <span className="italic-serif text-primary">Travel Protection</span> Ecosystem
+        <div className="mx-auto max-w-7xl mt-5 text-center sm:text-start px-6">
+          <Pill text="The Vision of Visa Guard Africa Technology" />
+          <h2 className="sm:mt-3 max-w-2xl text-balance tracking-tight text-xl sm:text-3xl font-extrabold md:text-4xl">
+            Building Africa's <span className="italic-serif text-primary">Travel Protection</span>{" "}
+            Ecosystem
           </h2>
-          <p className="mt-4 text-[.65rem] sm:text-xs md:text-sm max-w-2xl text-muted-foreground">
+          <p className="mt-4 text-[.7rem] sm:text-xs md:text-sm max-w-2xl text-muted-foreground">
             Today, Visa Guard Africa is building a secure ecosystem designed to protect travelers
             while helping verified professionals build trust and credibility. The platform combines
             technology, verification, secure payments and transparent communication to create a
             safer visa and relocation experience across Africa.
           </p>
+
+          {/* Sliding carousel — same behaviour across every screen size, no stacking */}
           <div
-            className="relative mt-12 md:hidden  touch-pan-y select-none"
-            style={{ height: "250px" }}
-            onTouchStart={handleTrustTouchStart}
-            onTouchEnd={handleTrustTouchEnd}
+            className="relative mt-10"
+            onMouseEnter={() => {
+              if (autoTrustRef.current) clearInterval(autoTrustRef.current);
+            }}
+            onMouseLeave={startTrustAutoplay}
           >
-            {trustFeatures.map((f, i) => {
-              const offset = (i - activeTrust + trustFeatures.length) % trustFeatures.length;
-              const isActive = offset === 0;
-              const isNext = offset === 1;
-              const isBehind = offset === 2;
-              const isHidden = offset > 2;
-
-              return (
-                <div
-                  key={f.title}
-                  className="absolute inset-x-0 rounded-2xl border-t-4 border-t-primary bg-background p-3"
-                  style={{
-                    transform: isActive
-                      ? "translateY(0px) scale(1)"
-                      : isNext
-                        ? "translateY(-14px) scale(0.96)"
-                        : isBehind
-                          ? "translateY(-24px) scale(0.92)"
-                          : "translateY(-24px) scale(0.92)",
-                    opacity: isHidden ? 0 : 1,
-                    zIndex: isActive ? 30 : isNext ? 20 : isBehind ? 10 : 0,
-                    transition: "transform 0.6s cubic-bezier(0.4,0,0.2,1), opacity 0.4s ease",
-                    pointerEvents: isActive ? "auto" : "none",
-                  }}
-                >
-                  <TrustCard f={f} agent1={agent1} agent2={agent2} agent3={agent3} />
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Desktop: grid */}
-          <div className="mt-12 hidden gap-5 sm:grid sm:grid-cols-2 lg:grid-cols-3 md:grid">
-            {trustFeatures.map((f) => (
+            <div
+              className="overflow-hidden touch-pan-y select-none"
+              onTouchStart={handleTrustTouchStart}
+              onTouchEnd={handleTrustTouchEnd}
+            >
               <div
-                key={f.title}
-                className="relative h-full min-h-54 rounded-2xl border-t-4 border-t-primary bg-background p-6 transition hover:border-b-4 hover:border-b-primary hover:border-t-0"
+                className="flex"
+                style={{
+                  transform: `translateX(-${safeTrustIndex * 100}%)`,
+                  transition: "transform 0.6s cubic-bezier(0.4,0,0.2,1)",
+                }}
               >
-                <TrustCard f={f} agent1={agent1} agent2={agent2} agent3={agent3} />
+                {trustPages.map((group, i) => (
+                  <div key={i} className="w-full shrink-0 px-1.5">
+                    <div
+                      className="grid gap-5"
+                      style={{
+                        gridTemplateColumns: `repeat(${trustPerView}, minmax(0, 1fr))`,
+                      }}
+                    >
+                      {group.map((f) => (
+                        <div
+                          key={f.title}
+                          className="relative flex h-full min-h-54 flex-col rounded-2xl border border-border bg-background p-6 text-start shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-primary/10 hover:shadow-md"
+                        >
+                          <TrustCard f={f} agent1={agent1} agent2={agent2} agent3={agent3} />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+
+            {trustTotal > 1 && (
+              <>
+                <button
+                  type="button"
+                  onClick={() => goToTrust(safeTrustIndex - 1)}
+                  aria-label="Previous"
+                  className="absolute left-0 top-1/2 z-10 hidden h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background text-muted-foreground shadow-md transition hover:border-primary/40 hover:text-primary sm:flex"
+                >
+                  <ChevronLeft className="h-5 w-5" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => goToTrust(safeTrustIndex + 1)}
+                  aria-label="Next"
+                  className="absolute right-0 top-1/2 z-10 hidden h-10 w-10 -translate-y-1/2 translate-x-1/2 items-center justify-center rounded-full border border-border bg-background text-muted-foreground shadow-md transition hover:border-primary/40 hover:text-primary sm:flex"
+                >
+                  <ChevronRight className="h-5 w-5" />
+                </button>
+              </>
+            )}
           </div>
+
+          {trustTotal > 1 && (
+            <div className="mt-8 flex items-center justify-center gap-2">
+              {trustPages.map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => goToTrust(i)}
+                  aria-label={`Go to slide ${i + 1}`}
+                  aria-current={i === safeTrustIndex}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    i === safeTrustIndex
+                      ? "w-6 bg-primary"
+                      : "w-2 bg-border hover:bg-muted-foreground/40"
+                  }`}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
@@ -275,14 +347,15 @@ function AboutPage() {
       <section className="bg-accent/40 py-5 md:py-16">
         <div className="mx-auto grid max-w-7xl text-center sm:text-start items-center gap-10 px-6 md:grid-cols-[1fr_280px]">
           <div>
-            <Pill text='Our Mission' />
-            <h2 className="mt-3 text-xl sm:text-3xl font-bold md:text-4xl italic-serif">
+            <Pill text="The Mission of Visa Guard Africa" />
+            <h2 className="mt-3 text-xl text-balance sm:text-3xl font-bold md:text-4xl italic-serif">
               "More Than Technology"
             </h2>
-            <p className="sm:mt-4 text-xs sm:text-sm text-muted-foreground">
-              For Visa Guard Africa, this is more than a digital platform. It is a mission to
-              protect people from losing their dreams, money, and future to scams while
-              creating safer pathways to global opportunities for Africans everywhere.
+            <p className="sm:mt-4 text-xs text-balance sm:text-sm text-muted-foreground">
+              For Visa Guard Africa, this is more than a digital platform, it is a mission to protect Africans from visa scams, 
+              prevent the loss of dreams, hard-earned money, and future opportunities, while building a safer, more transparent, 
+              and trusted pathway to global travel and relocation. Through technology, verification, and accountability, we are helping travelers pursue 
+              international opportunities with greater confidence.
             </p>
           </div>
           <div className="overflow-hidden rounded-xl relative border-6 border-[#0B3D91]">
@@ -297,13 +370,14 @@ function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-brand-footer mx-6 rounded-md sm:mx-0 mb-20 py-10 sm:py-20 text-white">
+      <section className="bg-brand-footer mx-6 sm:mx-0 mb-12 rounded-md mt-5 py-10 sm:py-20 text-white">
         <div className="mx-auto max-w-3xl px-6 text-center">
-          <h2 className="text-xl sm:text-3xl font-bold md:text-4xl">Start Your Visa Journey Safely</h2>
-          <p className="mt-3 text-[.6rem] sm:text-xs md:text-sm text-white/70">
-            Find verified visa professionals and process applications with greater confidence.
+          <h2 className="text-xl sm:text-3xl font-extrabold md:text-4xl">
+            Start Your Visa Journey Safely
+          </h2>
+          <p className="mt-3 text-[.7rem] sm:text-xs md:text-sm text-white/70">
+            Find verified visa professionals, process your applications with greater confidence, and protect yourself from visa scams through a secure and transparent application journey.
           </p>
-          <WaitListPromo />
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <button
               onClick={() => setDl(true)}
@@ -337,20 +411,21 @@ function TrustCard({
   agent3: string;
 }) {
   return (
-    <>
+    <div className="flex h-full flex-col">
       <div className="grid h-10 w-10 place-items-center rounded-lg bg-primary/90 text-white">
         <f.icon color="#fff" className="h-5 w-5" />
       </div>
       <h3 className="mt-4 text-lg font-bold">{f.title}</h3>
       <p className="mt-1.5 text-sm text-muted-foreground">{f.desc}</p>
+
       {f.tag ? (
-        <div className="mt-4 flex items-center gap-2 md:absolute md:bottom-7">
-          <span className="flex items-center gap-1 rounded-full bg-accent px-3 py-1 text-[.6rem] font-medium text-primary md:text-xs">
+        <div className="mt-auto flex flex-wrap items-center gap-2 pt-6">
+          <span className="flex items-center gap-1 rounded-full bg-accent px-3 py-1 text-[.65rem] font-medium text-primary md:text-xs">
             <CircleCheckBig size={10} /> {f.tag}
           </span>
         </div>
       ) : (
-        <div className="mt-2 flex w-fit items-center gap-3 rounded-full px-1 md:px-3 py-2 md:py-4 shadow">
+        <div className="mt-auto flex w-fit items-center gap-3 pt-6">
           <div className="flex -space-x-2">
             {[agent1, agent2, agent3].map((src, i) => (
               <img
@@ -362,9 +437,11 @@ function TrustCard({
             ))}
           </div>
           <Star className="h-4 w-4 fill-current text-yellow-500" />
-          <span className="text-[.6rem] md:text-sm text-muted-foreground">VERIFIED AGENTS</span>
+          <span className="text-[.65rem] font-medium text-muted-foreground md:text-sm">
+            VERIFIED AGENTS
+          </span>
         </div>
       )}
-    </>
+    </div>
   );
 }

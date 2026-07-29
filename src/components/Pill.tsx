@@ -1,8 +1,8 @@
-function Pill({text}:{text: string}) {
+function Pill({ text }: { text: string }) {
   return (
-    <div className="inline-flex items-center gap-1 sm:gap-2 rounded-full border border-primary/30 bg-primary/10 px-1 py-0.5 sm:px-2 sm:py-1 md:px-4 md:py-1.5 text-[.55rem] sm:text-[.6rem] md:text-xs font-medium text-primary shadow-sm">
-      <span className="h-1 w-1 rounded-full bg-primary" />
-      {text}
+    <div className="inline-flex items-center gap-1.5 sm:gap-2 whitespace-nowrap rounded-full border border-primary/20 bg-primary/5 px-2.5 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 text-[.6rem] sm:text-[.65rem] md:text-xs font-medium text-primary shadow-sm">
+      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary md:h-2 md:w-2" />
+      <span className="leading-none">{text}</span>
     </div>
   );
 }
