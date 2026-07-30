@@ -23,8 +23,7 @@ import {
   Plus,
   Minus,
 } from "lucide-react";
-import heroPhones from "@/assets/hero-phones.png";
-import trusted from "@/assets/trusted.png";
+import sidedisplay from "@/assets/sidedisplay.png";
 import planeSky from "@/assets/SidePlane.png";
 import handShake from "@/assets/handshake.png";
 import verified from "@/assets/verified.png";
@@ -232,13 +231,13 @@ function HomePage() {
         <div className="mx-auto grid max-w-7xl items-center md:text-start text-center gap-10 px-6 pt-18 md:grid-cols-2 md:py-24">
           <div className="space-y-3 sm:space-y-5">
             <Pill text="Protecting Africans From Visa Scams" />
-            <h1 className="text-xl tracking-tight text-balance sm:text-5xl font-bold leading-[1.01] text-foreground md:text-7xl">
+            <h1 className="text-xl tracking-tight text-balance sm:text-6xl font-bold leading-[1.01] text-foreground md:text-7xl">
               Protecting <span className="italic-serif text-primary">African Travelers</span>{" "}
               Through <span className="italic-serif text-primary">Trust</span>,{" "}
               <span className="italic-serif text-primary">Security</span>, and{" "}
               <span className="italic-serif text-primary">Transparency</span>.
             </h1>
-            <p className="max-w-xl text-[.7rem] sm:text-xs md:text-sm text-muted-foreground">
+            <p className="max-w-xl text-[.7rem] sm:text-sm md:text-sm text-muted-foreground">
               Visa Guard Africa connects travelers with verified visa professionals, secure escrow
               payments, and trusted embassy resources helping you verify before you pay and apply
               with confidence.
@@ -259,7 +258,7 @@ function HomePage() {
               </Link>
             </div>
           </div>
-          <div className="relative">
+          <div className="relative mb-2">
             <img
               src={worldMap}
               alt="App preview"
@@ -536,7 +535,7 @@ function HomePage() {
             </ol>
           </div>
           <div className="relative overflow-hidden rounded-3xl hidden md:flex">
-            <img src={trusted} alt="" className="h-120 w-full object-cover" loading="lazy" />
+            <img src={sidedisplay} alt="" className="h-120 w-full object-cover" loading="lazy" />
             <div className="absolute inset-0 bg-linear-to-t from-black via-black/30 to-transparent" />
             <div className="absolute bottom-15 left-8 right-8 text-white">
               <h3 className="md:text-3xl tracking-tight text-xl font-extrabold">Verified, Trusted, Secured.</h3>

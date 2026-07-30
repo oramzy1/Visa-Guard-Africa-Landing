@@ -416,7 +416,7 @@ function WaitlistPage() {
                 <br />
                 Join The <span className="italic-serif text-primary">Waitlist.</span>
               </h1>
-              <p className="text-xs md:text-sm mt-4 max-w-md text-muted-foreground capitalize text">
+              <p className="text-sm md:text-sm mt-4 max-w-md text-muted-foreground capitalize text">
                 Be among the first travelers and agents to access a safer, more transparent visa
                 platform built to protect Africans from scams and Insecure Tractions
               </p>
@@ -463,7 +463,7 @@ function WaitlistPage() {
           </div>
 
           {/* ── RIGHT: Form card ── */}
-          <div className="rounded-2xl w-full border border-border bg-background p-5 md:p-8 shadow-md">
+          <div className="rounded-2xl mt-6 w-full border border-border bg-background p-5 md:p-8 shadow-sm">
             {!submitted ? (
               <>
                 <div className="mb-6">
