@@ -73,13 +73,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Visa Guard Africa - Verify Before You Pay" },
+      { title: "VGA Technologies ltd. - Verify Before You Pay" },
       {
         name: "description",
         content:
-          "Connect with trusted, verified visa experts across Africa. Secure escrow, transparent tracking, scam protection.",
+          "Connect with verified visa professionals across Africa. VGA Technologies ltd provides secure escrow payments, transparent tracking, trusted embassy links, and scam protection.",
       },
-      { property: "og:title", content: "Visa Guard Africa" },
+      { property: "og:title", content: "VGA Technologies ltd." },
       {
         property: "og:description",
         content: "Verified agents. Secure escrow. Transparent visa journey.",
