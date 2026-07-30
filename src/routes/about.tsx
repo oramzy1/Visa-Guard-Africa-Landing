@@ -162,7 +162,7 @@ function AboutPage() {
       <section className="bg-white md:bg-hero-cream">
         <div className="mx-auto grid max-w-7xl items-center text-center sm:text-start gap-10 px-6 py-18 md:grid-cols-2">
           <div className="spce-y-3 sm:space-y-5">
-            <Pill text="About Visa Guard Africa Technologies" />
+            <Pill text="About VGA Technologies ltd." />
             <h1 className="text-2xl text-balance tracking-tight mt-1 mb-2 sm:text-3xl font-bold leading-tight md:text-5xl">
               Built From <span className="italic-serif text-primary">Real Experience</span>
               <br className="md:flex hidden" /> Designed to Protect{" "}
@@ -202,7 +202,7 @@ function AboutPage() {
       {/* Vision */}
       <section className="pb-5 sm:pb-16">
         <div className="mx-auto max-w-7xl mt-5 text-center sm:text-start px-6">
-          <Pill text="The Vision of Visa Guard Africa" />
+          <Pill text="The Vision of VGA Technologies ltd." />
           <h2 className="sm:mt-3 leading-[1.4rem] max-w-2xl text-balance tracking-tight text-xl sm:text-3xl font-extrabold md:text-4xl">
             Building Africa's <span className="italic-serif text-primary">Travel Protection</span>{" "}
             Ecosystem
@@ -303,7 +303,7 @@ function AboutPage() {
       <section className="bg-accent/40 py-5 md:py-16">
         <div className="mx-auto grid max-w-7xl text-center sm:text-start items-center gap-10 px-6 md:grid-cols-[1fr_280px]">
           <div>
-            <Pill text="The Mission of Visa Guard Africa" />
+            <Pill text="The Mission of VGA Technologies ltd." />
             <h2 className="mt-3 text-xl text-balance sm:text-3xl font-bold md:text-4xl italic-serif">
               "More Than Technology"
             </h2>

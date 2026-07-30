@@ -42,7 +42,7 @@ export function DownloadAppDialog({
             Continue In App
           </h3>
           <p className="mx-auto mt-2.5 max-w-xs text-xs leading-relaxed text-muted-foreground sm:text-sm">
-            Download Visa Guard Africa to securely connect with verified agents and manage your visa
+            Download VGA Technologies app to securely connect with verified agents and manage your visa
             journey safely.
           </p>
 
