@@ -16,7 +16,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import worldMap from "@/assets/worldMap.png";
-import founder from "@/assets/Founder.png";
+import planefront from "@/assets/plane-front.jpg";
 import founder1 from "@/assets/Founder1.png";
 import agent1 from "@/assets/agent-1.jpg";
 import agent2 from "@/assets/agent-2.jpg";
@@ -199,59 +199,15 @@ function AboutPage() {
         </div>
       </section>
 
-      {/* Founder */}
-      <section className="py-8 sm:py-16">
-        <div className="mx-auto max-w-7xl md:px-6">
-          <div className="overflow-hidden md:rounded-4xl bg-primary text-primary-foreground">
-            <div className="grid items-center gap-8 p-6 md:grid-cols-[280px_1fr] md:p-14">
-              <div className="overflow-hidden border-5 rounded-xl relative">
-                <img
-                  src={founder1}
-                  alt="Founder"
-                  className="h-84 w-full object-cover"
-                  loading="lazy"
-                />
-                <div className="absolute bottom-5 md:bottom-10  md:right-15 px-2 border-l-4 border-l-[#FF6B35] rounded bg-white ">
-                  <p className="text-primary py-2 text-center text-[.6rem] md:text-xs font-semibold">
-                    Mr. Chukwudi Eze · (Founder)
-                  </p>
-                </div>
-              </div>
-              <div>
-                <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-primary-foreground/70">
-                  Founder Story
-                </p>
-                <h2 className="mt-2 text-2xl tracking-tight font-extrabold md:text-3xl">
-                  Turning Pain Into Purpose
-                </h2>
-                <p className="mt-4 text-xs sm:text-sm leading-relaxed text-primary-foreground/85">
-                  <strong>Visa Guard Africa Technologies</strong> was founded by{" "}
-                  <strong>Chukwudi Eze</strong> after personally experiencing the devastating impact
-                  of visa and relocation scams. Like many Africans pursuing opportunities abroad, he
-                  trusted the wrong people, lost money, faced betrayal, and endured moments of
-                  uncertainty that could have derailed his dreams. Instead of allowing those
-                  experiences to define him, he chose to build a solution to protect others from the
-                  same pain. Through embassies, immigration authorities and law enforcement
-                  organizations, he discovered a major gap in the African travel industry - the
-                  absence of a trusted, technology-driven system focused on transparency,
-                  accountability, and traveler protection. That realization became the foundation of
-                  Visa Guard Africa Technologies LTD.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Vision */}
       <section className="pb-5 sm:pb-16">
         <div className="mx-auto max-w-7xl mt-5 text-center sm:text-start px-6">
-          <Pill text="The Vision of Visa Guard Africa Technology" />
-          <h2 className="sm:mt-3 max-w-2xl text-balance tracking-tight text-xl sm:text-3xl font-extrabold md:text-4xl">
+          <Pill text="The Vision of Visa Guard Africa" />
+          <h2 className="sm:mt-3 leading-[1.4rem] max-w-2xl text-balance tracking-tight text-xl sm:text-3xl font-extrabold md:text-4xl">
             Building Africa's <span className="italic-serif text-primary">Travel Protection</span>{" "}
             Ecosystem
           </h2>
-          <p className="mt-4 text-[.7rem] sm:text-xs md:text-sm max-w-2xl text-muted-foreground">
+          <p className="mt-2 text-[.7rem] sm:text-xs md:text-sm max-w-2xl text-muted-foreground">
             Today, Visa Guard Africa is building a secure ecosystem designed to protect travelers
             while helping verified professionals build trust and credibility. The platform combines
             technology, verification, secure payments and transparent communication to create a
@@ -351,32 +307,106 @@ function AboutPage() {
             <h2 className="mt-3 text-xl text-balance sm:text-3xl font-bold md:text-4xl italic-serif">
               "More Than Technology"
             </h2>
-            <p className="sm:mt-4 text-xs text-balance sm:text-sm text-muted-foreground">
-              For Visa Guard Africa, this is more than a digital platform, it is a mission to protect Africans from visa scams, 
-              prevent the loss of dreams, hard-earned money, and future opportunities, while building a safer, more transparent, 
-              and trusted pathway to global travel and relocation. Through technology, verification, and accountability, we are helping travelers pursue 
-              international opportunities with greater confidence.
+            <p className="sm:mt-4 text-sm text-balance sm:text-sm text-muted-foreground">
+              Every year, countless travelers fall victim to fraudulent visa agents, fake travel
+              offers, and misleading immigration services. These scams often result in financial
+              loss, emotional distress, delayed opportunities, and broken dreams. Visa Guard Africa
+              was created to help address these challenges by introducing a technology-driven
+              ecosystem built on trust, verification, and accountability. Rather than replacing
+              licensed travel professionals, Visa Guard Africa serves as the trusted bridge between
+              travelers and verified visa agents. We carefully verify agents before they can offer
+              services on the platform, giving travelers greater confidence when choosing who to
+              work with. Our secure escrow system protects agent service fees, ensuring payments are
+              released only after agreed milestones have been completed and verified, while official
+              government visa fees continue to be paid directly through authorized embassy or
+              immigration portals. Through real-time application tracking, secure in-app
+              communication, verified embassy and airline resources, identity verification, fraud
+              risk monitoring, and transparent service workflows, we help travelers stay informed
+              and protected throughout every stage of their visa journey. Our vision extends beyond
+              helping people apply for visas. We are building a trusted travel protection ecosystem
+              that promotes integrity, strengthens confidence in genuine travel professionals, and
+              creates safer opportunities for Africans pursuing education, employment, business,
+              tourism, and family reunification around the world. At Visa Guard Africa, we believe
+              every traveler deserves access to verified guidance, secure processes, and the
+              confidence to pursue international opportunities without fear of fraud. Because
+              protecting journeys begins with building trust—before every payment, every
+              application, and every new destination.
             </p>
           </div>
-          <div className="overflow-hidden rounded-xl relative border-6 border-[#0B3D91]">
-            <img src={founder1} alt="Founder" className="h-84 w-full object-cover" loading="lazy" />
-            <div className="absolute bottom-5 md:bottom-10  md:right-15 px-2 border-l-4 border-l-[#FF6B35] rounded bg-white ">
-              <p className="text-primary py-2 text-center text-[.6rem] md:text-xs font-semibold">
-                Mr. Chukwudi Eze · (Founder)
+          <div className="relative overflow-hidden rounded-xl">
+            <img
+              src={planefront}
+              alt="Visa Guard Africa Mission"
+              className="h-90 w-full object-cover"
+              loading="lazy"
+            />
+
+            {/* Bottom Dark Overlay */}
+            <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/85 via-black/90 to-transparent" />
+
+            {/* Mission Statement Label */}
+            <div className="absolute bottom-6 left-6">
+              <p className="text-white text-extrabold md:text-xl font-semibold tracking-tight">
+                Visa Guard Mission Statement
               </p>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Founder */}
+      <section className="py-8 sm:py-16">
+        <div className="mx-auto max-w-7xl md:px-6">
+          <div className="overflow-hidden md:rounded-4xl bg-primary text-primary-foreground">
+            <div className="grid items-center gap-8 p-6 md:grid-cols-[280px_1fr] md:p-14">
+              <div className="overflow-hidden border-3 rounded-xl relative">
+                <img
+                  src={founder1}
+                  alt="Founder"
+                  className="h-84 w-full object-cover"
+                  loading="lazy"
+                />
+                <div className="absolute bottom-5 md:bottom-10  md:right-15 px-2 border-l-4 border-l-[#FF6B35] rounded bg-white ">
+                  <p className="text-primary py-2 text-center text-[.6rem] md:text-xs font-semibold">
+                    Mr. Chukwudi Eze · (Founder)
+                  </p>
+                </div>
+              </div>
+              <div>
+                <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-primary-foreground/70">
+                  Founder Story
+                </p>
+                <h2 className="mt-2 text-2xl tracking-tight font-extrabold md:text-3xl">
+                  Turning Pain Into Purpose
+                </h2>
+                <p className="mt-4 text-sm sm:text-base leading-relaxed text-primary-foreground/85">
+                  <strong>Visa Guard Africa Technologies</strong> was founded by{" "}
+                  <strong>Chukwudi Eze</strong> after personally experiencing the devastating impact
+                  of visa and relocation scams. Like many Africans pursuing opportunities abroad, he
+                  trusted the wrong people, lost money, faced betrayal, and endured moments of
+                  uncertainty that could have derailed his dreams. Instead of allowing those
+                  experiences to define him, he chose to build a solution to protect others from the
+                  same pain. Through embassies, immigration authorities and law enforcement
+                  organizations, he discovered a major gap in the African travel industry - the
+                  absence of a trusted, technology-driven system focused on transparency,
+                  accountability, and traveler protection. That realization became the foundation of
+                  Visa Guard Africa Technologies LTD.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
-      <section className="bg-brand-footer mx-6 sm:mx-0 mb-12 rounded-md mt-5 py-10 sm:py-20 text-white">
+      <section className="bg-brand-footer mx-6 lg:mx-0 mb-12 rounded-md lg:rounded-none mt-3 py-10 sm:py-20 text-white">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <h2 className="text-xl sm:text-3xl font-extrabold md:text-4xl">
             Start Your Visa Journey Safely
           </h2>
           <p className="mt-3 text-[.7rem] sm:text-xs md:text-sm text-white/70">
-            Find verified visa professionals, process your applications with greater confidence, and protect yourself from visa scams through a secure and transparent application journey.
+            Find verified visa professionals, process your applications with greater confidence, and
+            protect yourself from visa scams through a secure and transparent application journey.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <button

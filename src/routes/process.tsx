@@ -112,12 +112,12 @@ function ProcessPage() {
                 <li key={s.title} className="relative list-none">
                   <div className="flex gap-5 md:gap-6">
                     <div className="relative z-10 shrink-0">
-                      <span className="grid h-10 w-10 place-items-center rounded-full border-4 border-background bg-primary text-sm font-bold text-primary-foreground shadow-md md:h-12 md:w-12">
+                      <span className="grid h-10 w-10 place-items-center rounded-full border-4 border-background bg-primary text-sm font-bold text-primary-foreground shadow-sm md:h-12 md:w-12">
                         {i + 1}
                       </span>
                     </div>
 
-                    <div className="flex-1 rounded-2xl border border-border bg-background p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/10 hover:shadow-sm">
+                    <div className="flex-1 rounded-2xl border-border bg-background p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/10 hover:shadow-sm">
                       <div className="flex flex-wrap items-start justify-between gap-3">
                         <div className="flex items-center gap-3">
                           <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary">
@@ -144,9 +144,10 @@ function ProcessPage() {
       {/* CTA */}
       <section className="bg-brand-footer mb-5 py-10 text-white sm:py-20">
         <div className="mx-auto max-w-3xl px-6 text-center">
-          <h2 className="text-3xl font-extrabold md:text-4xl">Ready to start safely?</h2>
-          <p className="mt-3 text-white/70">
-            Join thousands already on the waitlist to access verified visa experts.
+          <h2 className="text-3xl font-extrabold md:text-4xl">Ready to Start Safely?</h2>
+          <p className="mt-3 max-w-4xl text-white/70">
+            Download on Google Play to access verified visa professionals, secure escrow protection,
+            and transparent application tracking.{" "}
           </p>
           <Link
             to="/"
