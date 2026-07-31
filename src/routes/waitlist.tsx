@@ -437,7 +437,7 @@ function WaitlistPage() {
                 },
                 {
                   icon: Fingerprint,
-                  label: "NDPR Compliant",
+                  label: "NDPA Compliant",
                   desc: "Your personal data is encrypted and protected by law.",
                 },
                 {
@@ -650,7 +650,7 @@ function WaitlistPage() {
                   {/* Privacy note */}
                   <p className="flex items-center justify-center gap-1.5 text-center text-xs text-muted-foreground">
                     <Lock className="h-3 w-3" />
-                    NDPR-compliant · Encrypted · No spam, ever.
+                    NDPA-compliant · Encrypted · No spam, ever.
                   </p>
                 </form>
               </>
@@ -666,7 +666,7 @@ function WaitlistPage() {
                   when we launch. Watch your inbox.
                 </p>
                 <div className="mt-6 flex flex-wrap justify-center gap-2">
-                  {["Verified", "Escrow-Protected", "NDPR Compliant"].map((tag) => (
+                  {["Verified", "Escrow-Protected", "NDPA Compliant"].map((tag) => (
                     <span
                       key={tag}
                       className="flex items-center gap-1 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary"

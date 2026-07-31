@@ -28,7 +28,7 @@ export const Route = createFileRoute("/about")({
   component: AboutPage,
   head: () => ({
     meta: [
-      { title: "About - Visa Guard Africa" },
+      { title: "About - VGA Technologies ltd" },
       {
         name: "description",
         content:
@@ -65,9 +65,9 @@ const trustFeatures = [
   },
   {
     icon: FileCheck,
-    title: "NDPR Compliance",
-    desc: "Personal data is handled per NDPR compliance standards.",
-    tag: "NDPR Guidance",
+    title: "NDPA Compliance",
+    desc: "Personal data is handled per NDPA compliance standards.",
+    tag: "NDPA Guidance",
   },
   {
     icon: Activity,
@@ -169,7 +169,7 @@ function AboutPage() {
               <span className="italic-serif text-primary">Millions</span>
             </h1>
             <p className="text-muted-foreground mt-2 text-[.7rem] sm:text-xs md:text-sm">
-              Visa Guard Africa Technologies LTD was created to help Africans avoid visa and
+              VGA Technologies ltd was created to help Africans avoid visa and
               relocation scams through trust, transparency, and technology-driven protection.
             </p>
             <WaitListPromo />
@@ -208,7 +208,7 @@ function AboutPage() {
             Ecosystem
           </h2>
           <p className="mt-2 text-[.7rem] sm:text-xs md:text-sm max-w-2xl text-muted-foreground">
-            Today, Visa Guard Africa is building a secure ecosystem designed to protect travelers
+            Today, VGA Technologies ltd is building a secure ecosystem designed to protect travelers
             while helping verified professionals build trust and credibility. The platform combines
             technology, verification, secure payments and transparent communication to create a
             safer visa and relocation experience across Africa.
@@ -310,10 +310,10 @@ function AboutPage() {
             <p className="sm:mt-4 text-sm text-balance sm:text-sm text-muted-foreground">
               Every year, countless travelers fall victim to fraudulent visa agents, fake travel
               offers, and misleading immigration services. These scams often result in financial
-              loss, emotional distress, delayed opportunities, and broken dreams. Visa Guard Africa
+              loss, emotional distress, delayed opportunities, and broken dreams. VGA Technologies ltd
               was created to help address these challenges by introducing a technology-driven
               ecosystem built on trust, verification, and accountability. Rather than replacing
-              licensed travel professionals, Visa Guard Africa serves as the trusted bridge between
+              licensed travel professionals, VGA Technologies ltd serves as the trusted bridge between
               travelers and verified visa agents. We carefully verify agents before they can offer
               services on the platform, giving travelers greater confidence when choosing who to
               work with. Our secure escrow system protects agent service fees, ensuring payments are
@@ -326,7 +326,7 @@ function AboutPage() {
               helping people apply for visas. We are building a trusted travel protection ecosystem
               that promotes integrity, strengthens confidence in genuine travel professionals, and
               creates safer opportunities for Africans pursuing education, employment, business,
-              tourism, and family reunification around the world. At Visa Guard Africa, we believe
+              tourism, and family reunification around the world. At VGA Technologies ltd, we believe
               every traveler deserves access to verified guidance, secure processes, and the
               confidence to pursue international opportunities without fear of fraud. Because
               protecting journeys begins with building trust—before every payment, every
@@ -336,7 +336,7 @@ function AboutPage() {
           <div className="relative overflow-hidden rounded-xl">
             <img
               src={planefront}
-              alt="Visa Guard Africa Mission"
+              alt="VGA Technologies ltd Mission"
               className="h-90 w-full object-cover"
               loading="lazy"
             />
@@ -380,7 +380,7 @@ function AboutPage() {
                   Turning Pain Into Purpose
                 </h2>
                 <p className="mt-4 text-sm sm:text-base leading-relaxed text-primary-foreground/85">
-                  <strong>Visa Guard Africa Technologies</strong> was founded by{" "}
+                  <strong>VGA Technologies ltd</strong> was founded by{" "}
                   <strong>Chukwudi Eze</strong> after personally experiencing the devastating impact
                   of visa and relocation scams. Like many Africans pursuing opportunities abroad, he
                   trusted the wrong people, lost money, faced betrayal, and endured moments of
@@ -390,7 +390,7 @@ function AboutPage() {
                   organizations, he discovered a major gap in the African travel industry - the
                   absence of a trusted, technology-driven system focused on transparency,
                   accountability, and traveler protection. That realization became the foundation of
-                  Visa Guard Africa Technologies LTD.
+                  VGA Technologies ltd.
                 </p>
               </div>
             </div>
