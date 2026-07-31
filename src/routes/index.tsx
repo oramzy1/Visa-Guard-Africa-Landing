@@ -62,10 +62,10 @@ const trustFeatures = [
   },
   {
     icon: ShieldCheck,
-    title: "NDPR Compliance",
-    desc: "Your personal data is handled according to NDPR compliance standards.",
+    title: "NDPA Compliance",
+    desc: "Your personal data is handled according to NDPA compliance standards.",
     tag: "Data Protected",
-    tag1: "NDPR Complaince",
+    tag1: "NDPA Complaince",
   },
   {
     icon: MapPin,
@@ -114,32 +114,50 @@ const agents = [
     tags: ["Student Visa", "Relocation", "Schengen Visa"],
     desc: "Professional guidance for Tier 4 student visa applications, document preparation, and embassy appointment support.",
   },
-
 ];
 
 const faqs = [
   {
-    q: "What is Visa Guard Africa exactly about?",
-    a: "Visa Guard Africa is a trust-first visa platform that connects African travelers with verified visa professionals, secured by escrow payments and transparent milestone tracking - built specifically to prevent scams and accountability gaps.",
+    q: "What is VGA Technologies LTD?",
+    a: "VGA Technologies LTD is a trusted travel protection platform that connects African travelers with verified visa professionals. Our mission is to help reduce visa scams by providing agent verification, secure escrow protection for agent service fees, transparent application tracking, verified embassy resources, and secure in-app communication throughout the visa journey.",
   },
   {
-    q: "How do I sign up?",
-    a: "Download the app and complete a short onboarding to verify your identity. You'll be matched with verified agents in minutes.",
+    q: "How does VGA Technologies LTD work?",
+    a: "Simply create an account, complete your identity verification, browse verified visa professionals, and choose the service that best fits your travel needs. Once your documents have been reviewed and your application is ready, you can securely pay the agent's service fee through escrow while official government visa fees are paid directly through verified embassy or immigration portals.",
   },
   {
-    q: "What makes you trusted?",
-    a: "Every agent is reviewed and verified. Funds sit in escrow until milestones complete, and our scam detection layer monitors activity continuously.",
+    q: "Why should I trust the agents on VGA Technologies LTD?",
+    a: "Every visa professional on our platform goes through a comprehensive verification process before offering services. We verify their identity, business information, and other required documentation to help travelers connect with trusted professionals. Our transparent review system and secure communication tools further promote accountability throughout the process.",
   },
   {
-    q: "Can I track my visa journey?",
-    a: "Yes. Every milestone, document and message is tracked live inside the app.",
+    q: "How does the escrow payment system work?",
+    a: "VGA Technologies LTD protects the agent's service fee using a secure escrow system. Your payment is safely held until agreed service milestones have been completed and verified. This helps protect both travelers and verified agents while promoting fairness and transparency. Official government visa fees are not held in escrow—they are paid directly by the traveler through authorized government or embassy websites.",
   },
   {
-    q: "Is my data protected?",
-    a: "Absolutely. We are NDPR-compliant and use bank-grade encryption for everything.",
+    q: "Can I track my visa application progress?",
+    a: "Yes. Your dashboard provides real-time updates throughout your visa journey, including document submissions, completed milestones, agent activities, important notifications, appointment reminders, and application status updates so you always know what comes next.",
+  },
+  {
+    q: "Does VGA Technologies LTD process visa applications?",
+    a: "No. VGA Technologies LTD is not a visa processing agency or embassy. We provide a trusted platform that connects travelers with verified visa professionals, protects service payments through escrow, and offers tools that improve transparency and reduce the risk of fraud throughout the application process.",
+  },
+  {
+    q: "How are official visa fees paid?",
+    a: "Official government or embassy visa fees are paid directly by the traveler through verified government or embassy portals. VGA Technologies LTD provides access to trusted links to help travelers avoid fraudulent websites while ensuring payments are made directly to the appropriate government authority.",
+  },
+  {
+    q: "Is my personal information secure?",
+    a: "Yes. Protecting your information is one of our highest priorities. VGA Technologies LTD uses industry-standard security measures, encrypted data transmission, secure authentication, and privacy practices designed to safeguard your personal information and application documents throughout your journey.",
+  },
+  {
+    q: "Can I communicate with my visa professional on the platform?",
+    a: "Yes. Travelers and verified visa professionals can communicate securely through the in-app messaging system, allowing conversations, document requests, and application updates to remain organized and accessible in one place.",
+  },
+  {
+    q: "What happens if I have a dispute with my visa professional?",
+    a: "If a dispute arises, VGA Technologies LTD provides a structured resolution process. Because the agent's service fee is protected through escrow, payments are released only according to agreed service milestones, helping ensure fairness, accountability, and transparency for both travelers and verified professionals.",
   },
 ];
-
 
 function chunk<T>(items: T[], size: number): T[][] {
   if (size <= 0) return [items];
@@ -174,7 +192,6 @@ function HomePage() {
     }, 4000);
   };
 
-  
   useEffect(() => {
     const computeTrustPerView = () => {
       const w = window.innerWidth;
@@ -188,7 +205,6 @@ function HomePage() {
     return () => window.removeEventListener("resize", update);
   }, []);
 
-  
   useEffect(() => {
     startTrustAutoplay();
     return () => {
@@ -276,7 +292,10 @@ function HomePage() {
             {Array(3)
               .fill(null)
               .map((_, i) => (
-                <span key={i} className="flex tracking-tight items-center gap-1 text-xl text-primary-foreground">
+                <span
+                  key={i}
+                  className="flex tracking-tight items-center gap-1 text-xl text-primary-foreground"
+                >
                   <span>Verification</span>
                   <span className="text-primary-foreground/40">·</span>
                   <span>Escrow Protection</span>
@@ -321,8 +340,8 @@ function HomePage() {
           <div className="text-center mt-4">
             <Pill text="Secure Visa Processing" />
             <h2 className="text-xl tracking-tight sm:text-3xl mt-3 font-extrabold md:text-4.5xl">
-              Travel <span className="italic-serif text-primary font-semibold">Smarter</span>{" "}
-              Travel <span className="italic-serif font-semibold text-primary">Protected.</span>
+              Travel <span className="italic-serif text-primary font-semibold">Smarter</span> Travel{" "}
+              <span className="italic-serif font-semibold text-primary">Protected.</span>
             </h2>
             <p className="sm:mt-4 text-muted-foreground text-[.7rem] sm:text-sm md:text-sm sm:px-0 px-6">
               From Verified Visa Support To Secure Travel Guidance, <br /> Visa Guard Africa Helps
@@ -360,7 +379,9 @@ function HomePage() {
               />
               <div className="absolute inset-0 bg-linear-to-t from-black to-transparent" />
               <div className="absolute bottom-10 left-2.5 text-white">
-                <h3 className="text-sm tracking-tight md:text-2xl font-extrabold">Trusted Platform</h3>
+                <h3 className="text-sm tracking-tight md:text-2xl font-extrabold">
+                  Trusted Platform
+                </h3>
                 <p className="mt-1 text-sm md:text-sm text-white/80">
                   Built Around Transparency, Accountability, And Traveler Protection.
                 </p>
@@ -377,9 +398,12 @@ function HomePage() {
               />
               <div className="absolute inset-0 bg-linear-to-t from-black to-transparent" />
               <div className="absolute bottom-10 left-2.5 text-white">
-                <h3 className="text-sm tracking-tight md:text-2xl font-extrabold">Verified Agents</h3>
+                <h3 className="text-sm tracking-tight md:text-2xl font-extrabold">
+                  Verified Agents
+                </h3>
                 <p className="mt-1 text-sm md:text-sm text-white/80">
-                  Get Professional Assistance for a Safer, Secure, and Transparent Visa Application Process.
+                  Get Professional Assistance for a Safer, Secure, and Transparent Visa Application
+                  Process.
                 </p>
               </div>
             </div>
@@ -512,7 +536,8 @@ function HomePage() {
               How It <span className="italic-serif text-primary">Works</span>
             </h2>
             <p className="text-[.7rem] sm:text-sm md:text-sm text-muted-foreground">
-              A simple, transparent, and secure process designed to protect travelers from visa fraud.
+              A simple, transparent, and secure process designed to protect travelers from visa
+              fraud.
             </p>
             <ol className="mt-8 space-y-5">
               {[
@@ -538,7 +563,9 @@ function HomePage() {
             <img src={sidedisplay} alt="" className="h-120 w-full object-cover" loading="lazy" />
             <div className="absolute inset-0 bg-linear-to-t from-black via-black/30 to-transparent" />
             <div className="absolute bottom-15 left-8 right-8 text-white">
-              <h3 className="md:text-3xl tracking-tight text-xl font-extrabold">Verified, Trusted, Secured.</h3>
+              <h3 className="md:text-3xl tracking-tight text-xl font-extrabold">
+                Verified, Trusted, Secured.
+              </h3>
               <p className="mt-2 text-sm text-white/80">
                 Visa Guard Africa uses a secure escrow system to hold funds safely until both
                 parties meet agreed conditions? This helps prevent fraud and ensures transparency in
@@ -582,10 +609,11 @@ function HomePage() {
               </div>
             ))}
           </div>
-            <Link to="/process">
-          <button className="mt-8 rounded-lg bg-primary px-6 py-3 text-xs md:text-sm w-full md:w-fit font-semibold text-primary-foreground hover:bg-primary/90">
-            View Our Process
-          </button></Link>
+          <Link to="/process">
+            <button className="mt-8 rounded-lg bg-primary px-6 py-3 text-xs md:text-sm w-full md:w-fit font-semibold text-primary-foreground hover:bg-primary/90">
+              View Our Process
+            </button>
+          </Link>
         </div>
       </section>
 
@@ -598,7 +626,9 @@ function HomePage() {
               <span className="italic-serif text-primary">Protected</span>
             </h2>
             <p className="md:mt-3 text-[.7rem] sm:text-xs md:text-sm leading-relaxed text-balance text-muted-foreground">
-              Our escrow protection system helps create a transparent payment process by securely holding your funds until verified milestones are completed, protecting both travelers and trusted agents.
+              Our escrow protection system helps create a transparent payment process by securely
+              holding your funds until verified milestones are completed, protecting both travelers
+              and trusted agents.
             </p>
             <button
               onClick={() => setDownload(true)}
@@ -619,7 +649,8 @@ function HomePage() {
             Frequently Asked Questions
           </h2>
           <p className="sm:mt-4 text-[.7rem] text-balance sm:text-sm md:text-sm text-center text-muted-foreground">
-            Browse Most Frequent questions From Travelers And Agents Using The Visa Guard Application
+            Browse Most Frequent questions From Travelers And Agents Using The Visa Guard
+            Application
           </p>
           <div className="mt-3 sm:mt-10 space-y-3">
             {faqs.map((f, i) => (
@@ -773,7 +804,7 @@ function AgentCard({ agent }: { agent: (typeof agents)[0] }) {
         <div className="mt-2 flex flex-wrap gap-3 text-xs text-muted-foreground">
           {[
             { Icon: ShieldCheck, text: "Escrow Protected" },
-            { Icon: FileCheck, text: "NDPR Complaint" },
+            { Icon: FileCheck, text: "NDPA Complaint" },
             { Icon: FileCheck, text: "Verified Documents" },
           ].map((i, idx) => (
             <span

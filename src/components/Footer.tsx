@@ -25,7 +25,7 @@ export function Footer() {
             <div className="flex items-center gap-2">
               <img src={logo} alt="VGA" className="h-9 w-9 rounded-md" />
               <div>
-                <div className="text-[15px] font-bold text-white">Visa Guard Africa</div>
+                <div className="text-[15px] font-bold text-white">VGA Technologies ltd.</div>
                 <div className="text-[10px] text-white/60">Protecting Africans from visa scams</div>
               </div>
             </div>
@@ -88,6 +88,7 @@ export function Footer() {
             <ul className="space-y-3 text-xs sm:text-xs">
               <li>Email : support@visaguardafrica.com</li>
               <li>Lagos, Nigeria,&nbsp;&nbsp; </li>
+              <li>Phone : +234 901 566 3101</li>
             </ul>
           </div>
         </div>
@@ -95,7 +96,7 @@ export function Footer() {
         <div className="border-t border-white/10">
           <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-3 px-6 py-5 text-[.6rem] sm:text-xs text-white/60 md:flex-row md:items-center">
             <p>
-              © 2026 <span className="underline">Visa Guard Africa Technologies LTD</span>. – All
+              © 2026 <span className="underline">VGA Technologies ltd.</span>. – All
               rights reserved.
             </p>
             <p className="flex items-center gap-1.5">

@@ -22,21 +22,21 @@ function ContactPage() {
   return (
     <PageLayout>
       <section className="bg-hero-cream">
-        <div className="mx-auto mt-4 max-w-7xl px-6 py-18 md:py-15">
+        <div className="mx-auto mt-4 max-w-7xl px-6 py-15 md:py-15">
           <span className="inline-flex mt-4 items-center gap-2 rounded-full border border-border bg-background px-3 py-1 text-xs font-semibold text-primary">
             • Contact Us
           </span>
-          <h1 className="mt-5 text-3xl font-extrabold md:text-5xl">
+          <h1 className="mt-5 text-3xl tracking-tight text-balance font-extrabold md:text-5xl">
             Need Help or <span className="italic-serif text-primary">Support?</span>
           </h1>
-          <p className="mt-4 max-w-2xl text-muted-foreground text-sm md:text-sm">
+          <p className="mt-2 max-w-2xl text-muted-foreground text-sm md:text-sm">
             Connect With Our Team For Platform Support, Partnership Opportunities, Or Questions
             About Secure Visa Processing And Travel Protection Services.
           </p>
         </div>
       </section>
 
-      <section className="py-16">
+      <section className="py-12">
         <div className="mx-auto grid max-w-7xl gap-8 px-6 md:grid-cols-[360px_1fr]">
           <div className="space-y-5">
             <div className="rounded-2xl border border-border bg-background p-6">
@@ -55,7 +55,7 @@ function ContactPage() {
                 </div>
                 <h3 className="font-bold">Call Center</h3>
               </div>
-              <p className="mt-3 text-sm text-muted-foreground">+234 123 456 7899</p>
+              <p className="mt-3 text-sm text-muted-foreground">+234 901 566 3101</p>
             </div>
             <div className="rounded-2xl border border-border bg-background p-6">
               <h3 className="font-bold">Our Social Handles</h3>
