@@ -16,6 +16,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import worldMap from "@/assets/worldMap.png";
+import sidedisplay from "@/assets/sidedisplay.png";
 import planefront from "@/assets/plane-front.jpg";
 import founder1 from "@/assets/Founder1.png";
 import agent1 from "@/assets/agent-1.jpg";
@@ -335,7 +336,7 @@ function AboutPage() {
           </div>
           <div className="relative overflow-hidden rounded-xl">
             <img
-              src={planefront}
+              src={sidedisplay}
               alt="VGA Technologies ltd Mission"
               className="h-90 w-full object-cover"
               loading="lazy"
@@ -347,7 +348,7 @@ function AboutPage() {
             {/* Mission Statement Label */}
             <div className="absolute bottom-6 left-6">
               <p className="text-white text-extrabold md:text-xl font-semibold tracking-tight">
-                Visa Guard Mission Statement
+                VGA Technologies ltd, Mission Statement.
               </p>
             </div>
           </div>
