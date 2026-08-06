@@ -247,7 +247,7 @@ function HomePage() {
         <div className="mx-auto grid max-w-7xl items-center md:text-start text-center gap-10 px-6 pt-18 md:grid-cols-2 md:py-24">
           <div className="space-y-3 sm:space-y-5">
             <Pill text="Protecting Africans From Visa Scams" />
-            <h1 className="text-xl tracking-tight text-balance sm:text-6xl font-bold leading-[1.01] text-foreground md:text-7xl">
+            <h1 className="text-4xl tracking-tight text-balance sm:text-6xl font-bold leading-[1.15] sm:leading-[1.05] text-foreground md:text-7xl md:leading-[1.01] mx-auto max-w-88 sm:max-w-none">
               Protecting <span className="italic-serif text-primary">African Travelers</span>{" "}
               Through <span className="italic-serif text-primary">Trust</span>,{" "}
               <span className="italic-serif text-primary">Security</span>, and{" "}
@@ -339,7 +339,7 @@ function HomePage() {
         <div className="mx-auto max-w-7xl sm:px-6 px-2">
           <div className="text-center mt-4">
             <Pill text="Secure Visa Processing" />
-            <h2 className="text-xl tracking-tight sm:text-3xl mt-3 font-extrabold md:text-4.5xl">
+            <h2 className="text-2xl tracking-tight sm:text-3xl mt-3 font-extrabold md:text-4.5xl">
               Travel <span className="italic-serif text-primary font-semibold">Smarter</span> Travel{" "}
               <span className="italic-serif font-semibold text-primary">Protected.</span>
             </h2>
@@ -359,7 +359,7 @@ function HomePage() {
               />
               <div className="absolute inset-0 bg-linear-to-t from-black to-transparent" />
               <div className="absolute bottom-15 left-4 max-w-md text-white">
-                <h3 className="text-sm tracking-tight md:text-2xl font-extrabold">
+                <h3 className="text-lg tracking-tight md:text-2xl font-extrabold">
                   Your Trusted Travel Protection Partner
                 </h3>
                 <p className="mt-2 text-sm md:text-sm text-white/80">
@@ -379,7 +379,7 @@ function HomePage() {
               />
               <div className="absolute inset-0 bg-linear-to-t from-black to-transparent" />
               <div className="absolute bottom-10 left-2.5 text-white">
-                <h3 className="text-sm tracking-tight md:text-2xl font-extrabold">
+                <h3 className="text-lg tracking-tight md:text-2xl font-extrabold">
                   Trusted Platform
                 </h3>
                 <p className="mt-1 text-sm md:text-sm text-white/80">
@@ -398,7 +398,7 @@ function HomePage() {
               />
               <div className="absolute inset-0 bg-linear-to-t from-black to-transparent" />
               <div className="absolute bottom-10 left-2.5 text-white">
-                <h3 className="text-sm tracking-tight md:text-2xl font-extrabold">
+                <h3 className="text-lg tracking-tight md:text-2xl font-extrabold">
                   Verified Agents
                 </h3>
                 <p className="mt-1 text-sm md:text-sm text-white/80">
@@ -418,7 +418,7 @@ function HomePage() {
               />
               <div className="absolute inset-0 bg-linear-to-t from-black to-transparent" />
               <div className="absolute bottom-15 left-4 text-white">
-                <h3 className="text-sm tracking-tight md:text-2xl font-extrabold">Global Travel</h3>
+                <h3 className="text-lg tracking-tight md:text-2xl font-extrabold">Global Travel</h3>
                 <p className="mt-1 text-sm md:text-sm text-white/80">
                   Explore International Opportunities With <br /> Safer And More Trusted Travel
                   Support.
@@ -433,7 +433,7 @@ function HomePage() {
       <section className="bg-accent/40 md:py-20 py-5">
         <div className="mx-auto max-w-7xl px-4 md:px-6">
           <div className="text-center">
-            <h2 className="text-xl mt-5 tracking-tight sm:text-3xl font-extrabold md:text-4xl">
+            <h2 className="text-2xl mt-5 tracking-tight sm:text-3xl font-extrabold md:text-4xl">
               Built Around <span className="italic-serif text-primary">Trust</span> &{" "}
               <span className="italic-serif text-primary">Protection</span>
             </h2>
@@ -532,7 +532,7 @@ function HomePage() {
       <section className="md:py-20 py-5">
         <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 md:grid-cols-2">
           <div>
-            <h2 className="text-xl tracking-tight text-balance mt-3 sm:text-3xl font-extrabold md:text-4xl">
+            <h2 className="text-2xl tracking-tight text-balance mt-3 sm:text-3xl font-extrabold md:text-4xl">
               How It <span className="italic-serif text-primary">Works</span>
             </h2>
             <p className="text-[.7rem] sm:text-sm md:text-sm text-muted-foreground">
@@ -580,7 +580,7 @@ function HomePage() {
       <section className="bg-accent/40 md:py-20 py-5">
         <div className="mx-auto max-w-7xl px-6 text-center sm:text-start">
           {/* <Pill text="Verified Marketplace" /> */}
-          <h2 className="mt-5 text-xl tracking-tigh text-balancet sm:text-3xl font-extrabold md:text-4xl">
+          <h2 className="mt-5 text-2xl tracking-tight text-balance sm:text-3xl font-extrabold md:text-4xl">
             Explore <span className="italic-serif text-primary">Trusted & Verified</span> <br />
             Visa Services And Agents.
           </h2>
@@ -621,7 +621,7 @@ function HomePage() {
       <section className="md:pt-20 pt-20 md:bg-accent/50 mx-5 md:mx-0">
         <div className="mx-auto grid max-w-7xl items-center gap-10 rounded-3xl bg-accent/50 md:bg-transparent pt-10 px-6 md:grid-cols-2 md:pt-16 justify-center text-center md:text-start">
           <div>
-            <h2 className="text-xl sm:text-3xl tracking-tight text-balance font-extrabold md:text-6xl">
+            <h2 className="text-2xl sm:text-3xl tracking-tight text-balance font-extrabold md:text-6xl">
               Your Payments Stay <span className="italic-serif text-primary">Secured</span> &{" "}
               <span className="italic-serif text-primary">Protected</span>
             </h2>
@@ -645,7 +645,7 @@ function HomePage() {
       <section className="py-20">
         <div className="mx-auto max-w-3xl px-6 text-center sm:text-start">
           {/* <Pill text="Frequently Asked Questions" /> */}
-          <h2 className="mt-2 text-center text-balance text-xl tracking-tight sm:text-3xl font-extrabold md:text-4xl">
+          <h2 className="mt-2 text-center text-balance text-2xl tracking-tight sm:text-3xl font-extrabold md:text-4xl">
             Frequently Asked Questions
           </h2>
           <p className="sm:mt-4 text-[.7rem] text-balance sm:text-sm md:text-sm text-center text-muted-foreground">
