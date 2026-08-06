@@ -170,8 +170,8 @@ function AboutPage() {
               <span className="italic-serif text-primary">Millions</span>
             </h1>
             <p className="text-muted-foreground mt-2 text-[.7rem] sm:text-xs md:text-sm">
-              VGA Technologies ltd was created to help Africans avoid visa and
-              relocation scams through trust, transparency, and technology-driven protection.
+              VGA Technologies ltd was created to help Africans avoid visa and relocation scams
+              through trust, transparency, and technology-driven protection.
             </p>
             <WaitListPromo />
             <div className="flex flex-wrap gap-3">
@@ -204,7 +204,7 @@ function AboutPage() {
       <section className="pb-5 sm:pb-16">
         <div className="mx-auto max-w-7xl mt-5 text-center sm:text-start px-6">
           <Pill text="The Vision of VGA Technologies ltd." />
-          <h2 className="sm:mt-3 leading-[1.4rem] max-w-2xl text-balance tracking-tight text-xl sm:text-3xl font-extrabold md:text-4xl">
+          <h2 className="sm:mt-3 leading-tight max-w-2xl text-balance tracking-tight text-2xl sm:text-3xl font-extrabold md:text-4xl">
             Building Africa's <span className="italic-serif text-primary">Travel Protection</span>{" "}
             Ecosystem
           </h2>
@@ -305,30 +305,30 @@ function AboutPage() {
         <div className="mx-auto grid max-w-7xl text-center sm:text-start items-center gap-10 px-6 md:grid-cols-[1fr_280px]">
           <div>
             <Pill text="The Mission of VGA Technologies ltd." />
-            <h2 className="mt-3 text-xl text-balance sm:text-3xl font-bold md:text-4xl italic-serif">
+            <h2 className="mt-3 text-2xl text-balance sm:text-3xl font-bold md:text-4xl italic-serif">
               "More Than Technology"
             </h2>
-            <p className="sm:mt-4 text-sm text-balance sm:text-sm text-muted-foreground">
+            <p className="mt-3 sm:mt-4 text-sm text-balance leading-relaxed sm:text-sm text-muted-foreground">
               Every year, countless travelers fall victim to fraudulent visa agents, fake travel
               offers, and misleading immigration services. These scams often result in financial
-              loss, emotional distress, delayed opportunities, and broken dreams. VGA Technologies ltd
-              was created to help address these challenges by introducing a technology-driven
+              loss, emotional distress, delayed opportunities, and broken dreams. VGA Technologies
+              ltd was created to help address these challenges by introducing a technology-driven
               ecosystem built on trust, verification, and accountability. Rather than replacing
-              licensed travel professionals, VGA Technologies ltd serves as the trusted bridge between
-              travelers and verified visa agents. We carefully verify agents before they can offer
-              services on the platform, giving travelers greater confidence when choosing who to
-              work with. Our secure escrow system protects agent service fees, ensuring payments are
-              released only after agreed milestones have been completed and verified, while official
-              government visa fees continue to be paid directly through authorized embassy or
-              immigration portals. Through real-time application tracking, secure in-app
+              licensed travel professionals, VGA Technologies ltd serves as the trusted bridge
+              between travelers and verified visa agents. We carefully verify agents before they can
+              offer services on the platform, giving travelers greater confidence when choosing who
+              to work with. Our secure escrow system protects agent service fees, ensuring payments
+              are released only after agreed milestones have been completed and verified, while
+              official government visa fees continue to be paid directly through authorized embassy
+              or immigration portals. Through real-time application tracking, secure in-app
               communication, verified embassy and airline resources, identity verification, fraud
               risk monitoring, and transparent service workflows, we help travelers stay informed
               and protected throughout every stage of their visa journey. Our vision extends beyond
               helping people apply for visas. We are building a trusted travel protection ecosystem
               that promotes integrity, strengthens confidence in genuine travel professionals, and
               creates safer opportunities for Africans pursuing education, employment, business,
-              tourism, and family reunification around the world. At VGA Technologies ltd, we believe
-              every traveler deserves access to verified guidance, secure processes, and the
+              tourism, and family reunification around the world. At VGA Technologies ltd, we
+              believe every traveler deserves access to verified guidance, secure processes, and the
               confidence to pursue international opportunities without fear of fraud. Because
               protecting journeys begins with building trust—before every payment, every
               application, and every new destination.
@@ -343,11 +343,11 @@ function AboutPage() {
             />
 
             {/* Bottom Dark Overlay */}
-            <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/85 via-black/90 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 h-28 bg-linear-to-t from-black/85 via-black/90 to-transparent" />
 
             {/* Mission Statement Label */}
             <div className="absolute bottom-6 left-6">
-              <p className="text-white text-extrabold md:text-xl font-semibold tracking-tight">
+              <p className="text-white md:text-xl font-semibold tracking-tight">
                 VGA Technologies ltd, Mission Statement.
               </p>
             </div>
@@ -381,17 +381,16 @@ function AboutPage() {
                   Turning Pain Into Purpose
                 </h2>
                 <p className="mt-4 text-sm sm:text-base leading-relaxed text-primary-foreground/85">
-                  <strong>VGA Technologies ltd</strong> was founded by{" "}
-                  <strong>Chukwudi Eze</strong> after personally experiencing the devastating impact
-                  of visa and relocation scams. Like many Africans pursuing opportunities abroad, he
-                  trusted the wrong people, lost money, faced betrayal, and endured moments of
-                  uncertainty that could have derailed his dreams. Instead of allowing those
-                  experiences to define him, he chose to build a solution to protect others from the
-                  same pain. Through embassies, immigration authorities and law enforcement
-                  organizations, he discovered a major gap in the African travel industry - the
-                  absence of a trusted, technology-driven system focused on transparency,
-                  accountability, and traveler protection. That realization became the foundation of
-                  VGA Technologies ltd.
+                  <strong>VGA Technologies ltd</strong> was founded by <strong>Chukwudi Eze</strong>{" "}
+                  after personally experiencing the devastating impact of visa and relocation scams.
+                  Like many Africans pursuing opportunities abroad, he trusted the wrong people,
+                  lost money, faced betrayal, and endured moments of uncertainty that could have
+                  derailed his dreams. Instead of allowing those experiences to define him, he chose
+                  to build a solution to protect others from the same pain. Through embassies,
+                  immigration authorities and law enforcement organizations, he discovered a major
+                  gap in the African travel industry - the absence of a trusted, technology-driven
+                  system focused on transparency, accountability, and traveler protection. That
+                  realization became the foundation of VGA Technologies ltd.
                 </p>
               </div>
             </div>
@@ -402,7 +401,7 @@ function AboutPage() {
       {/* CTA */}
       <section className="bg-brand-footer mx-6 lg:mx-0 mb-12 rounded-md lg:rounded-none mt-3 py-10 sm:py-20 text-white">
         <div className="mx-auto max-w-3xl px-6 text-center">
-          <h2 className="text-xl sm:text-3xl font-extrabold md:text-4xl">
+          <h2 className="text-2xl sm:text-3xl font-extrabold md:text-4xl">
             Start Your Visa Journey Safely
           </h2>
           <p className="mt-3 text-[.7rem] sm:text-xs md:text-sm text-white/70">
