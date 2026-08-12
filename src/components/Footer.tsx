@@ -57,15 +57,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/process" className="hover:text-white">
+                <Link to="/process" search={{ tab: "payment-protection" }} className="hover:text-white">
                   Security
                 </Link>
               </li>
-              <li> <li>
-  <Link to="/legal" search={{ tab: "payment-protection" }} className="hover:text-white">
-    Security
-  </Link>
-</li>
+              <li>
                 <Link to="/contact" className="hover:text-white">
                   Support
                 </Link>
