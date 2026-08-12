@@ -61,16 +61,20 @@ export function Footer() {
                   Security
                 </Link>
               </li>
-              <li>
+              <li> <li>
+  <Link to="/legal" search={{ tab: "payment-protection" }} className="hover:text-white">
+    Security
+  </Link>
+</li>
                 <Link to="/contact" className="hover:text-white">
                   Support
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <a href="#" className="hover:text-white">
                   Cookies policy
                 </a>
-              </li>
+              </li> */}
             </ul>
           </div>
 
@@ -78,8 +82,16 @@ export function Footer() {
             <h4 className="mb-4 text-sm font-semibold tracking-wider text-white">SUPPORT</h4>
             <ul className="space-y-3 text-xs sm:text-xs">
               <li>Frequently Asked Questions</li>
-              <li>Privacy policy</li>
-              <li>General terms and conditions</li>
+              <li>
+  <Link to="/legal" search={{ tab: "privacy" }} className="hover:text-white">
+    Privacy policy
+  </Link>
+</li>
+               <li>
+  <Link to="/legal" search={{ tab: "terms" }} className="hover:text-white">
+    General terms & conditions
+  </Link>
+</li>
             </ul>
           </div>
 

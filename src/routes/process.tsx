@@ -33,7 +33,7 @@ const steps = [
     icon: Activity,
     title: "Track Your Journey",
     tag: "Full Transparency",
-    desc: "Stay informed with real-time updates on your application progress, submitted documents, completed milestones, and agent activities—all in one secure dashboard.",
+    desc: "Stay informed with real-time updates on your application progress, submitted documents, completed milestones, and agent activities-all in one secure dashboard.",
   },
   {
     icon: ShieldCheck,
