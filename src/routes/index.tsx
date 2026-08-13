@@ -339,7 +339,7 @@ function HomePage() {
         <div className="mx-auto max-w-7xl sm:px-6 px-2">
           <div className="text-center mt-4">
             <Pill text="Secure Visa Processing" />
-            <h2 className="text-2xl tracking-tight sm:text-3xl mt-3 font-extrabold md:text-4.5xl">
+            <h2 className="text-3xl tracking-tight sm:text-3xl mt-3 font-extrabold md:text-4xl">
               Travel <span className="italic-serif text-primary font-semibold">Smarter</span> Travel{" "}
               <span className="italic-serif font-semibold text-primary">Protected.</span>
             </h2>
@@ -359,8 +359,8 @@ function HomePage() {
               />
               <div className="absolute inset-0 bg-linear-to-t from-black to-transparent" />
               <div className="absolute bottom-15 left-4 max-w-md text-white">
-                <h3 className="text-lg tracking-tight md:text-2xl font-extrabold">
-                  Your Trusted Travel Protection Partner
+                <h3 className="text-2xl tracking-tight md:text-3xl font-bold">
+                  Your Travel Protection Partner
                 </h3>
                 <p className="mt-2 text-sm md:text-sm text-white/80">
                   From Verified Visa Support To Secure Travel Guidance, Visa Guard Africa Helps
@@ -379,7 +379,7 @@ function HomePage() {
               />
               <div className="absolute inset-0 bg-linear-to-t from-black to-transparent" />
               <div className="absolute bottom-10 left-2.5 text-white">
-                <h3 className="text-lg tracking-tight md:text-2xl font-extrabold">
+                <h3 className="text-2xl tracking-tight md:text-3xl font-bold">
                   Trusted Platform
                 </h3>
                 <p className="mt-1 text-sm md:text-sm text-white/80">
@@ -398,7 +398,7 @@ function HomePage() {
               />
               <div className="absolute inset-0 bg-linear-to-t from-black to-transparent" />
               <div className="absolute bottom-10 left-2.5 text-white">
-                <h3 className="text-lg tracking-tight md:text-2xl font-extrabold">
+                <h3 className="text-2xl tracking-tight md:text-3xl font-bold">
                   Verified Agents
                 </h3>
                 <p className="mt-1 text-sm md:text-sm text-white/80">
@@ -418,7 +418,7 @@ function HomePage() {
               />
               <div className="absolute inset-0 bg-linear-to-t from-black to-transparent" />
               <div className="absolute bottom-15 left-4 text-white">
-                <h3 className="text-lg tracking-tight md:text-2xl font-extrabold">Global Travel</h3>
+                <h3 className="text-2xl tracking-tight md:text-3xl font-bold">Global Travel</h3>
                 <p className="mt-1 text-sm md:text-sm text-white/80">
                   Explore International Opportunities With <br /> Safer And More Trusted Travel
                   Support.
@@ -433,11 +433,11 @@ function HomePage() {
       <section className="bg-accent/40 md:py-20 py-5">
         <div className="mx-auto max-w-7xl px-4 md:px-6">
           <div className="text-center">
-            <h2 className="text-2xl mt-5 tracking-tight sm:text-3xl font-extrabold md:text-4xl">
+            <h2 className="text-3xl mt-7 tracking-tight sm:text-3xl font-extrabold md:text-4xl">
               Built Around <span className="italic-serif text-primary">Trust</span> &{" "}
               <span className="italic-serif text-primary">Protection</span>
             </h2>
-            <p className="sm:mt-3 text-[.7rem] sm:text-sm md:text-sm mx-auto max-w-xl text-muted-foreground capitalize">
+            <p className="sm:mt-3 text-[.7rem] sm:text-sm md:text-sm mx-auto max-w-md text-muted-foreground capitalize">
               Visa Guard Africa combines verification, escrow protection, and transparent tracking
               to create a safer visa experience for Africans.
             </p>
@@ -532,10 +532,10 @@ function HomePage() {
       <section className="md:py-20 py-5">
         <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 md:grid-cols-2">
           <div>
-            <h2 className="text-2xl tracking-tight text-balance mt-3 sm:text-3xl font-extrabold md:text-4xl">
+            <h2 className="text-3xl tracking-tight text-balance mt-7 sm:text-3xl font-extrabold md:text-4xl">
               How It <span className="italic-serif text-primary">Works</span>
             </h2>
-            <p className="text-[.7rem] sm:text-sm md:text-sm text-muted-foreground">
+            <p className="text-[.7rem] sm:mt-3 sm:text-sm md:text-sm text-muted-foreground capitalize">
               A simple, transparent, and secure process designed to protect travelers from visa
               fraud.
             </p>
@@ -643,13 +643,13 @@ function HomePage() {
 
       {/* FAQ */}
       <section className="py-20">
-        <div className="mx-auto max-w-3xl px-6 text-center sm:text-start">
+        <div className="mx-auto max-w-4xl px-6 text-center sm:text-start">
           {/* <Pill text="Frequently Asked Questions" /> */}
-          <h2 className="mt-2 text-center text-balance text-2xl tracking-tight sm:text-3xl font-extrabold md:text-4xl">
+          <h2 className="mt-2 text-center text-balance text-3xl tracking-tight sm:text-3xl font-extrabold md:text-4xl">
             Frequently Asked Questions
           </h2>
-          <p className="sm:mt-4 text-[.7rem] text-balance sm:text-sm md:text-sm text-center text-muted-foreground">
-            Browse Most Frequent questions From Travelers And Agents Using The Visa Guard
+          <p className="sm:mt-4 text-[.7rem] text-balance mt-2 sm:text-sm md:text-sm text-center text-muted-foreground">
+            Browse Most Frequent questions From Travelers & Agents Using The Visa Guard
             Application
           </p>
           <div className="mt-3 sm:mt-10 space-y-3">
@@ -663,7 +663,7 @@ function HomePage() {
       {/* CTA */}
       <section className="bg-brand-footer mx-5 sm:rounded-none rounded-md sm:mx-0 mb-20 py-10 sm:py-20 text-white">
         <div className="mx-auto max-w-3xl px-6 text-center">
-          <h2 className="text-xl sm:text-3xl tracking-tight font-extrabold md:text-4xl">
+          <h2 className="text-2xl sm:text-3xl tracking-tight font-extrabold md:text-4xl">
             Start Your Visa Journey Safely
           </h2>
           <p className="mt-3 mb-1 text-[.7rem] sm:text-xs md:text-sm text-white/70">

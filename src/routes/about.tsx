@@ -164,7 +164,7 @@ function AboutPage() {
         <div className="mx-auto grid max-w-7xl items-center text-center sm:text-start gap-10 px-6 py-18 md:grid-cols-2">
           <div className="spce-y-3 sm:space-y-5">
             <Pill text="About VGA Technologies ltd." />
-            <h1 className="text-2xl text-balance tracking-tight mt-1 mb-2 sm:text-3xl font-bold leading-tight md:text-5xl">
+            <h1 className="text-3xl text-balance tracking-tight mt-2 mb-2 sm:text-3xl font-bold leading-tight md:text-5xl">
               Built From <span className="italic-serif text-primary">Real Experience</span>
               <br className="md:flex hidden" /> Designed to Protect{" "}
               <span className="italic-serif text-primary">Millions</span>
@@ -204,7 +204,7 @@ function AboutPage() {
       <section className="pb-5 sm:pb-16">
         <div className="mx-auto max-w-7xl mt-5 text-center sm:text-start px-6">
           <Pill text="The Vision of VGA Technologies ltd." />
-          <h2 className="sm:mt-3 leading-tight max-w-2xl text-balance tracking-tight text-2xl sm:text-3xl font-extrabold md:text-4xl">
+          <h2 className="sm:mt-3 leading-tight max-w-2xl text-balance tracking-tight text-3xl sm:text-3xl font-bold md:text-4xl">
             Building Africa's <span className="italic-serif text-primary">Travel Protection</span>{" "}
             Ecosystem
           </h2>
@@ -305,7 +305,7 @@ function AboutPage() {
         <div className="mx-auto grid max-w-7xl text-center sm:text-start items-center gap-10 px-6 md:grid-cols-[1fr_280px]">
           <div>
             <Pill text="The Mission of VGA Technologies ltd." />
-            <h2 className="mt-3 text-2xl text-balance sm:text-3xl font-bold md:text-4xl italic-serif">
+            <h2 className="mt-3 text-2xl text-balance tracking-tight sm:text-3xl font-bold md:text-4xl">
               "More Than Technology"
             </h2>
             <p className="mt-3 sm:mt-4 text-sm text-balance leading-relaxed sm:text-sm text-muted-foreground">
@@ -331,6 +331,7 @@ function AboutPage() {
               believe every traveler deserves access to verified guidance, secure processes, and the
               confidence to pursue international opportunities without fear of fraud. Because
               protecting journeys begins with building trust-before every payment, every
+              protecting journeys begins with building trust before every payment, every
               application, and every new destination.
             </p>
           </div>
@@ -347,8 +348,8 @@ function AboutPage() {
 
             {/* Mission Statement Label */}
             <div className="absolute bottom-6 left-6">
-              <p className="text-white md:text-xl font-semibold tracking-tight">
-                VGA Technologies ltd, Mission Statement.
+              <p className="text-white md:text-xl font-bold tracking-tight">
+                Visa Guard Africa, Mission Statement.
               </p>
             </div>
           </div>
@@ -375,7 +376,7 @@ function AboutPage() {
               </div>
               <div>
                 <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-primary-foreground/70">
-                  Founder Story
+                  About The Founder - Founder Story
                 </p>
                 <h2 className="mt-2 text-2xl tracking-tight font-extrabold md:text-3xl">
                   Turning Pain Into Purpose
@@ -401,10 +402,10 @@ function AboutPage() {
       {/* CTA */}
       <section className="bg-brand-footer mx-6 lg:mx-0 mb-12 rounded-md lg:rounded-none mt-3 py-10 sm:py-20 text-white">
         <div className="mx-auto max-w-3xl px-6 text-center">
-          <h2 className="text-2xl sm:text-3xl font-extrabold md:text-4xl">
-            Start Your Visa Journey Safely
+          <h2 className="text-3xl sm:text-3xl font-bold md:text-4xl">
+            Start Your Visa Journey Safely Today.
           </h2>
-          <p className="mt-3 text-[.7rem] sm:text-xs md:text-sm text-white/70">
+          <p className="mt-3 text-[.7rem] sm:text-xs md:text-sm text-white/70 capitalize">
             Find verified visa professionals, process your applications with greater confidence, and
             protect yourself from visa scams through a secure and transparent application journey.
           </p>
