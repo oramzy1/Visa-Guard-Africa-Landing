@@ -60,9 +60,9 @@ function ProcessPage() {
     <PageLayout>
       {/* HERO */}
       <section className="bg-hero-cream">
-        <div className="mx-auto mt-7 max-w-4xl px-6 py-13 text-center md:py-24">
+        <div className="mx-auto mt-10 max-w-4xl px-6 py-13 text-center md:py-24">
           <Pill text="Step by Step Process on How it Works" />
-          <h1 className="text-3xl mt-2 font-bold text-balance tracking-tight leading-tight sm:text-4xl md:text-6xl">
+          <h1 className="text-3xl mt-4 font-bold text-balance tracking-tight leading-tight sm:text-4xl md:text-6xl">
             A Safer Visa Journey, <span className="italic-serif text-primary">Step By Step.</span>
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-balance text-sm text-muted-foreground md:text-base">
@@ -87,13 +87,13 @@ function ProcessPage() {
       <section className="py-14 md:py-24">
         <div className="mx-auto max-w-4xl px-6">
           {/* Left-aligned section header */}
-          <div className="max-w-2xl text-start">
+          <div className="mx-auto max-w-3xl py-13 text-center">
             <Pill text="Quick Steps on How It Works" />
-            <h2 className="mt-4 text-2xl tracking-tight text-balance font-bold sm:text-3xl md:text-4xl">
+            <h2 className="mt-4 text-3xl text-center tracking-tight text-balance font-bold sm:text-3xl md:text-4xl">
               We Connect You With{" "}
-              <span className="italic-serif text-primary">Trusted & Verified</span> Agents.
+              <span className="italic-serif text-primary">Trusted and Verified</span> Agents.
             </h2>
-            <p className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base">
+            <p className="mt-3 text-sm text-center leading-relaxed text-muted-foreground md:text-base">
               Our role is simple: match every traveler with a visa professional we've personally
               verified, then protect that relationship from first contact to final approval. Every
               stage below exists to keep you safe.
@@ -101,7 +101,7 @@ function ProcessPage() {
           </div>
 
           {/* Steps */}
-          <div className="relative mt-12 md:mt-14">
+          <div className="relative mt-5 md:mt-14">
             <div
               className="absolute left-5 top-2 bottom-2 w-px bg-linear-to-b from-transparent via-border to-transparent md:left-6"
               aria-hidden="true"
