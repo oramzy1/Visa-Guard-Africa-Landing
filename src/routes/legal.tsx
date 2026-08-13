@@ -27,9 +27,9 @@ function LegalPage() {
   return (
     <PageLayout>
       <section className="bg-white md:bg-hero-cream">
-        <div className="mx-auto max-w-7xl px-6 py-14 text-center sm:text-start">
+        <div className="mx-auto max-w-7xl mt-7 px-6 py-14 text-center sm:text-start">
           <Pill text="Legal & Policies" />
-          <h1 className="mt-3 text-2xl text-balance tracking-tight sm:text-3xl font-bold md:text-4xl">
+          <h1 className="mt-3 text-3xl text-balance tracking-tight sm:text-3xl font-bold md:text-4xl">
             Our <span className="italic-serif text-primary">Terms</span> & Policies
           </h1>
           <p className="mt-2 max-w-xl text-[.7rem] sm:text-xs md:text-sm text-muted-foreground">
