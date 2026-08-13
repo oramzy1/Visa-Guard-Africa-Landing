@@ -78,7 +78,7 @@ const trustFeatures = [
   },
 ];
 
-// Splits an array into equal-sized groups — used to build one "slide" per
+// Splits an array into equal-sized groups - used to build one "slide" per
 // group of trust cards so the carousel shows N cards per view instead of
 // stacking them vertically.
 function chunk<T>(items: T[], size: number): T[][] {
@@ -215,7 +215,7 @@ function AboutPage() {
             safer visa and relocation experience across Africa.
           </p>
 
-          {/* Sliding carousel — same behaviour across every screen size, no stacking */}
+          {/* Sliding carousel - same behaviour across every screen size, no stacking */}
           <div
             className="relative mt-10"
             onMouseEnter={() => {
@@ -330,6 +330,7 @@ function AboutPage() {
               tourism, and family reunification around the world. At VGA Technologies ltd, we
               believe every traveler deserves access to verified guidance, secure processes, and the
               confidence to pursue international opportunities without fear of fraud. Because
+              protecting journeys begins with building trust-before every payment, every
               protecting journeys begins with building trust before every payment, every
               application, and every new destination.
             </p>

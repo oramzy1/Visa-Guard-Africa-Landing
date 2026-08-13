@@ -131,7 +131,7 @@ const faqs = [
   },
   {
     q: "How does the escrow payment system work?",
-    a: "VGA Technologies LTD protects the agent's service fee using a secure escrow system. Your payment is safely held until agreed service milestones have been completed and verified. This helps protect both travelers and verified agents while promoting fairness and transparency. Official government visa fees are not held in escrow—they are paid directly by the traveler through authorized government or embassy websites.",
+    a: "VGA Technologies LTD protects the agent's service fee using a secure escrow system. Your payment is safely held until agreed service milestones have been completed and verified. This helps protect both travelers and verified agents while promoting fairness and transparency. Official government visa fees are not held in escrow-they are paid directly by the traveler through authorized government or embassy websites.",
   },
   {
     q: "Can I track my visa application progress?",
@@ -443,7 +443,7 @@ function HomePage() {
             </p>
           </div>
 
-          {/* Sliding carousel — same behaviour across every screen size, no stacking */}
+          {/* Sliding carousel - same behaviour across every screen size, no stacking */}
           <div
             className="relative mt-12"
             onMouseEnter={() => {
