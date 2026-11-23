@@ -1,7 +1,9 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { PageLayout } from "@/components/PageLayout";
 import { Search, Lock, Activity, Plane, ShieldCheck, CircleCheckBig } from "lucide-react";
 import Pill from "@/components/Pill";
+
+const GOOGLE_PLAY_URL = "https://play.google.com/store/apps/details?id=com.visaguardafrica.app";
 
 export const Route = createFileRoute("/process")({
   component: ProcessPage,
@@ -86,7 +88,6 @@ function ProcessPage() {
       {/* PROCESS */}
       <section className="py-14 md:py-24">
         <div className="mx-auto max-w-4xl px-6">
-          {/* Left-aligned section header */}
           <div className="mx-auto max-w-3xl py-13 text-center">
             <Pill text="Quick Steps on How It Works" />
             <h2 className="mt-4 text-3xl text-center tracking-tight text-balance font-bold sm:text-3xl md:text-4xl">
@@ -100,7 +101,6 @@ function ProcessPage() {
             </p>
           </div>
 
-          {/* Steps */}
           <div className="relative mt-5 md:mt-14">
             <div
               className="absolute left-5 top-2 bottom-2 w-px bg-linear-to-b from-transparent via-border to-transparent md:left-6"
@@ -123,9 +123,7 @@ function ProcessPage() {
                           <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary">
                             <s.icon className="h-5 w-5" />
                           </div>
-                          <h3 className="text-md font-bold text-balance leading-tight">
-                            {s.title}
-                          </h3>
+                          <h3 className="text-md font-bold text-balance leading-tight">{s.title}</h3>
                         </div>
                         <span className="flex items-center gap-1 rounded-full bg-accent px-3 py-1 text-[.65rem] font-medium text-primary md:text-xs">
                           <CircleCheckBig size={10} /> {s.tag}
@@ -147,14 +145,14 @@ function ProcessPage() {
           <h2 className="text-3xl font-extrabold md:text-4xl">Ready to Start Safely?</h2>
           <p className="mt-3 max-w-4xl text-white/70">
             Download on Google Play to access verified visa professionals, secure escrow protection,
-            and transparent application tracking.{" "}
+            and transparent application tracking.
           </p>
-          <Link
-            to="/"
+          <a
+            href={GOOGLE_PLAY_URL}
             className="mt-6 inline-flex rounded-lg bg-primary tracking-tight px-6 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90"
           >
             Get The Visa Guard App
-          </Link>
+          </a>
         </div>
       </section>
     </PageLayout>

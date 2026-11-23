@@ -1,5 +1,7 @@
 import { Download, X, Star } from "lucide-react";
 
+const GOOGLE_PLAY_URL = "https://play.google.com/store/apps/details?id=com.visaguardafrica.app";
+
 export function DownloadAppDialog({
   open,
   onOpenChange,
@@ -22,7 +24,6 @@ export function DownloadAppDialog({
       />
 
       <div className="relative w-full max-w-sm overflow-hidden rounded-3xl bg-card text-center shadow-2xl ring-1 ring-black/5 animate-fade-in sm:max-w-md">
-        {/* Top accent */}
         <div className="h-1.5 w-full from-primary via-primary/70 to-primary" />
 
         <div className="p-5 sm:p-8">
@@ -58,9 +59,12 @@ export function DownloadAppDialog({
           </div>
 
           <div className="mt-6 flex flex-col gap-2.5">
-            <button className="w-full rounded-xl bg-primary py-3 text-xs font-semibold text-primary-foreground shadow-sm transition hover:bg-primary/90 sm:text-sm">
+            <a
+              href={GOOGLE_PLAY_URL}
+              className="w-full rounded-xl bg-primary py-3 text-xs font-semibold text-primary-foreground shadow-sm transition hover:bg-primary/90 sm:text-sm"
+            >
               Download App
-            </button>
+            </a>
             <button
               onClick={() => onOpenChange(false)}
               className="w-full rounded-xl py-2.5 text-xs font-medium text-muted-foreground transition hover:text-foreground sm:text-sm"
